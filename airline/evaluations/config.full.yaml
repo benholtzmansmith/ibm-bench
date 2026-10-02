@@ -1,8 +1,6 @@
-# ADK evaluation config (full run). Run from the repo root:
-#   orchestrate evaluations evaluate -c airline/evaluations/config.full.yaml
-auth_config:
-  url: http://localhost:4321
-  tenant_name: local
+# ADK evaluation config (full run). Run from the repo root with scripts/run_evals.sh.
+# There is no auth_config, so the evaluation targets the active orchestrate
+# environment: the local server or a remote instance.
 test_paths:
   - airline/evaluations/test_cases
 output_dir: results/full

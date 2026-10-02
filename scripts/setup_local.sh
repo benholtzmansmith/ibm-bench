@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Start a local watsonx Orchestrate Developer Edition server, register the
 # virtual model, and import the tau-bench airline tools and agent.
+# To use a SaaS instance instead, see setup_remote.sh.
 #
 # Reads .env in the repo root (copy .env.example and fill it in). It is passed
 # to `orchestrate server start --env-file` and must set:
@@ -32,15 +33,4 @@ fi
 orchestrate server start "${START_ARGS[@]}"
 orchestrate env activate local
 
-# Virtual model: a key_value connection holds the provider key, the model points at it.
-orchestrate connections add -a anthropic_creds || true
-orchestrate connections configure -a anthropic_creds --env draft --type team --kind key_value
-orchestrate connections set-credentials -a anthropic_creds --env draft -e "api_key=$ANTHROPIC_API_KEY"
-orchestrate models import -f airline/models/claude_sonnet.yaml --app-id anthropic_creds
-
-orchestrate tools import -k python -f airline/tools/airline_tools.py \
-  -r airline/tools/requirements.txt -p airline/tools
-orchestrate agents import -f airline/agents/tau_airline_agent.yaml
-
-orchestrate models list
-orchestrate agents list
+scripts/import_airline.sh

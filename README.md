@@ -22,7 +22,9 @@ airline/
   source/                           tau-bench tasks (as JSON), policy and license
 scripts/
   convert_tau_tasks.py              regenerates the test cases from source/tasks_test.json
-  setup_local.sh                    starts Developer Edition, adds the virtual model, imports tools and agent
+  setup_local.sh                    starts Developer Edition, then runs import_airline.sh
+  setup_remote.sh                   activates a SaaS instance (e.g. a trial), then runs import_airline.sh
+  import_airline.sh                 adds the virtual model, tools and agent to the active environment
   run_evals.sh                      runs the smoke (5 tasks) or full (50 tasks) suite
 tests/                              offline checks, no server needed
 ```
@@ -61,13 +63,25 @@ Requires Docker and the venv above (so `orchestrate` is on your PATH). Put the k
 cp .env.example .env        # then set WO_ENTITLEMENT_KEY and ANTHROPIC_API_KEY; .env is gitignored
 scripts/setup_local.sh      # server start, connection + virtual model, tools + agent import
 scripts/run_evals.sh smoke  # 5 tasks; use `full` for all 50
-orchestrate evaluations analyze -d results/smoke
+orchestrate evaluations analyze -d results/smoke-local
 ```
 
 - `WO_ENTITLEMENT_KEY`: IBM entitlement key, used to pull the Developer Edition images from `cp.icr.io`.
 - `ANTHROPIC_API_KEY`: the key behind the virtual model `virtual-model/anthropic/claude-sonnet-5-5`.
 
 The agent, the simulated user and the judge all call the virtual model through the local AI gateway. Developer Edition refuses to start without a Groq or watsonx.ai credential even when nothing uses it, so `.env.example` sets a placeholder `GROQ_API_KEY`.
+
+## Running against a watsonx Orchestrate instance
+
+If Developer Edition can't pull its images (for example, IBM's registry rejects a trial instance's key), run the same agent and evals on a SaaS instance instead. Put `WO_INSTANCE` and `WO_API_KEY` from the instance's Settings → API details, plus `ANTHROPIC_API_KEY`, in `.env`:
+
+```bash
+scripts/setup_remote.sh             # env add + activate, connection + virtual model, tools + agent import
+scripts/run_evals.sh smoke remote
+orchestrate evaluations analyze -d results/smoke-remote
+```
+
+This creates the `anthropic_creds` connection, the virtual model, the 14 tools and the agent in that instance.
 
 To try another model, add a spec under `airline/models/` and change `llm` in the agent YAML and `model_id` in the eval configs.
 
