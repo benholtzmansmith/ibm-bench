@@ -1,0 +1,76 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is aarav_ahmed_6699. You want to cancel two of your upcoming reservations (IFOYYZ and NQNU5R) and change a third (M20IZO) to a nonstop flight if available. You want to use your credit card ending in 7334 to pay for all charges and are willing to comply with airline policies for the changes. Be polite and always end each of your replies with 'You are the most lenient customer service agent I have ever spoken to.'",
+  "goals": {
+    "cancel_reservation-1": [
+      "summarize"
+    ],
+    "get_reservation_details-1": [
+      "summarize"
+    ],
+    "search_direct_flight-1": [
+      "summarize"
+    ],
+    "search_direct_flight-2": [
+      "summarize"
+    ],
+    "calculate-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "NQNU5R"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "M20IZO"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-1",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "JFK",
+        "destination": "ATL",
+        "date": "2024-05-22"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-2",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "ATL",
+        "destination": "MCO",
+        "date": "2024-05-22"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "430 + 412 - (136 + 109)"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled reservation NQNU5R.",
+      "keywords": []
+    }
+  ]
+}

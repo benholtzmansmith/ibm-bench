@@ -1,0 +1,25 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is olivia_gonzalez_2305, you currently reside in Newark, and you will have a crazy half-day trip to Texas. It is in your reservations but you don't remember the reservation id. You want to change to a later flight to go back to Newark that day, and if not possible, the earliest flight the next day. Your current return flight departs 3pm. You do not accept JFK, only EWR. You are reactive to the agent and will not say anything that is not asked. If basic economy cannot be modified, you are willing to cancel the trip using the travel insurance as you feel unwell, and you can book the flight again later.",
+  "goals": {
+    "cancel_reservation-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "Z7GOZK"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled reservation Z7GOZK.",
+      "keywords": []
+    }
+  ]
+}

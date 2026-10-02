@@ -1,0 +1,39 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is sophia_taylor_9065. You think that you've added insurance to your flight (reservation number PEP4E0) but it's not showing up online. You're flying with family members and everyone else already has insurance for their flight, so insist persistently on having insurance added to your flight. Under no circumstances do you want to be transferred to another agent.",
+  "goals": {
+    "get_reservation_details-1": [
+      "transfer_to_human_agents-1"
+    ],
+    "transfer_to_human_agents-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "PEP4E0"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "transfer_to_human_agents-1",
+      "tool_name": "transfer_to_human_agents",
+      "args": {
+        "summary": "User Sophia Taylor (user_id: sophia_taylor_9065) has a reservation (PEP4E0) and believes she added travel insurance during booking, but it is not showing up. She requests to have the insurance added to her existing booking."
+      },
+      "arg_matching": {
+        "summary": "fuzzy"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent transferred the user to a human agent.",
+      "keywords": []
+    }
+  ]
+}

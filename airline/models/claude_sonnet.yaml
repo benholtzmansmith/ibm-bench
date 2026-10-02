@@ -1,0 +1,10 @@
+# Virtual model served through the Orchestrate AI gateway.
+# Register with:
+#   orchestrate models import -f airline/models/claude_sonnet.yaml --app-id anthropic_creds
+# where anthropic_creds is a key_value connection holding api_key (see scripts/setup_local.sh).
+spec_version: v1
+name: anthropic/claude-sonnet-5-5
+display_name: Claude Sonnet 5.5
+description: Claude Sonnet 5.5 via Anthropic, used by the tau-bench airline agent and the eval user simulator.
+config:
+  max_tokens: 4096

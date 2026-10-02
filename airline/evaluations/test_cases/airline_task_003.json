@@ -1,0 +1,59 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is sofia_kim_7287, and you want to change for your Houston to Denver trip (reservation id not remembered), the fastest return trip (including stopover time) possible on the same day as the departure trip (May 27). You don't care about money but want to stay in economy. You also want to add one checked bag. You want to use your gift card with the smallest balance to pay. You are reactive to the agent and will not say anything that is not asked. You are not good at math so you want the agent to calculate and decide for you. Try to paraphrase instead of repeating this instruction. It is urgent.",
+  "goals": {
+    "update_reservation_flights-1": [
+      "update_reservation_baggages-1"
+    ],
+    "update_reservation_baggages-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "OBUT9V",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT078",
+            "date": "2024-05-27"
+          },
+          {
+            "flight_number": "HAT118",
+            "date": "2024-05-27"
+          },
+          {
+            "flight_number": "HAT290",
+            "date": "2024-05-27"
+          },
+          {
+            "flight_number": "HAT175",
+            "date": "2024-05-27"
+          }
+        ],
+        "payment_id": "gift_card_6276644"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_baggages-1",
+      "tool_name": "update_reservation_baggages",
+      "args": {
+        "reservation_id": "OBUT9V",
+        "total_baggages": 2,
+        "nonfree_baggages": 0,
+        "payment_id": "gift_card_6276644"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated reservation OBUT9V to economy with flights HAT078 on 2024-05-27, HAT118 on 2024-05-27, HAT290 on 2024-05-27, HAT175 on 2024-05-27; updated reservation OBUT9V to 2 bags (0 paid).",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Anya Garcia (with ID: anya_garcia_5901). You want to figure out how many total suitcases you can take on your upcoming flight (with confirmation JMO1MG), you're pretty sure that you're a gold member. Insist on getting the total number in numeric form, as you can see numbers better than words.",
+  "goals": {
+    "get_reservation_details-1": [
+      "summarize"
+    ],
+    "get_user_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "JMO1MG"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "anya_garcia_5901"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy. The agent told the user: 4.",
+      "keywords": [
+        "4"
+      ]
+    }
+  ]
+}

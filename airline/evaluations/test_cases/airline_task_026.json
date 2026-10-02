@@ -1,0 +1,99 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is aarav_ahmed_6699. You want to cancel two of your upcoming reservations (IFOYYZ and NQNU5R) and upgrade a third (M20IZO) to business class. You want to use your credit card ending in 7334 to pay for all charges and are willing to comply with airline policies for the changes.",
+  "goals": {
+    "cancel_reservation-1": [
+      "update_reservation_flights-1"
+    ],
+    "get_reservation_details-1": [
+      "update_reservation_flights-1"
+    ],
+    "search_direct_flight-1": [
+      "update_reservation_flights-1"
+    ],
+    "search_direct_flight-2": [
+      "update_reservation_flights-1"
+    ],
+    "calculate-1": [
+      "update_reservation_flights-1"
+    ],
+    "update_reservation_flights-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "NQNU5R"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "M20IZO"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-1",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "JFK",
+        "destination": "ATL",
+        "date": "2024-05-22"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-2",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "ATL",
+        "destination": "MCO",
+        "date": "2024-05-22"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "430 + 412 - (136 + 109)"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "M20IZO",
+        "cabin": "business",
+        "flights": [
+          {
+            "flight_number": "HAT268",
+            "date": "2024-05-22"
+          },
+          {
+            "flight_number": "HAT010",
+            "date": "2024-05-22"
+          }
+        ],
+        "payment_id": "credit_card_9074831"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled reservation NQNU5R; updated reservation M20IZO to business with flights HAT268 on 2024-05-22, HAT010 on 2024-05-22.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is 'daiki_muller_1116'. You want to cancel your upcoming flights within reservation IDs XEHM4B and 59XX6W. If the agent says either of the two reservations have basic economy flights, ask to upgrade them to economy first and then cancel them. You are very persistent and terse but clear. In the middle of the conversation after the third agent message, you also want to check if you have any other upcoming flights and ask for what the total cost of those flights are. ",
+  "goals": {
+    "get_reservation_details-1": [
+      "update_reservation_flights-1"
+    ],
+    "get_reservation_details-2": [
+      "update_reservation_flights-1"
+    ],
+    "calculate-1": [
+      "update_reservation_flights-1"
+    ],
+    "calculate-2": [
+      "update_reservation_flights-1"
+    ],
+    "update_reservation_flights-1": [
+      "cancel_reservation-1"
+    ],
+    "cancel_reservation-1": [
+      "cancel_reservation-2"
+    ],
+    "cancel_reservation-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "XEHM4B"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-2",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "59XX6W"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "(65 + 83) * 2"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-2",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "(168 + 114) * 2"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "XEHM4B",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT005",
+            "date": "2024-05-20"
+          },
+          {
+            "flight_number": "HAT178",
+            "date": "2024-05-30"
+          }
+        ],
+        "payment_id": "credit_card_2408938"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "XEHM4B"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-2",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "59XX6W"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated reservation XEHM4B to economy with flights HAT005 on 2024-05-20, HAT178 on 2024-05-30; cancelled reservation XEHM4B; cancelled reservation 59XX6W.",
+      "keywords": []
+    }
+  ]
+}

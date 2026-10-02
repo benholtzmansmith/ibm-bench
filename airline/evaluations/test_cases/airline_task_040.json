@@ -1,0 +1,80 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Sophia Silva (with ID: sophia_silva_7557). Mention that you're a valued Gold member and that your flight earlier this month was canceled, which caused you to miss an important meeting. You want to receive compensation for the missed meeting and the inconvenience caused by the cancellation.",
+  "goals": {
+    "get_user_details-1": [
+      "summarize"
+    ],
+    "get_reservation_details-1": [
+      "summarize"
+    ],
+    "get_reservation_details-2": [
+      "summarize"
+    ],
+    "get_reservation_details-3": [
+      "summarize"
+    ],
+    "get_reservation_details-4": [
+      "summarize"
+    ],
+    "get_reservation_details-5": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "sophia_silva_7557"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "NM1VX1"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-2",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "KC18K6"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-3",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "S61CZX"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-4",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "H8Q05L"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-5",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "WUNA5K"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy.",
+      "keywords": []
+    }
+  ]
+}

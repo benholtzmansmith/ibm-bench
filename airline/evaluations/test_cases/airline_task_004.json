@@ -1,0 +1,69 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is omar_rossi_1241. For your upcoming trip from New York to Chicago, you want to change the passenger to yourself, upgrade it to economy class, and have 3 checked bags. You prefer gift card payment. Your birthday is in your user profile so you do not prefer to provide it. You are reactive to the agent and will not say anything that is not asked.",
+  "goals": {
+    "update_reservation_flights-1": [
+      "update_reservation_passengers-1"
+    ],
+    "update_reservation_passengers-1": [
+      "update_reservation_baggages-1"
+    ],
+    "update_reservation_baggages-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "FQ8APE",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT056",
+            "date": "2024-05-25"
+          },
+          {
+            "flight_number": "HAT138",
+            "date": "2024-05-25"
+          }
+        ],
+        "payment_id": "gift_card_8190333"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_passengers-1",
+      "tool_name": "update_reservation_passengers",
+      "args": {
+        "reservation_id": "FQ8APE",
+        "passengers": [
+          {
+            "first_name": "Omar",
+            "last_name": "Rossi",
+            "dob": "1970-06-06"
+          }
+        ]
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_baggages-1",
+      "tool_name": "update_reservation_baggages",
+      "args": {
+        "reservation_id": "FQ8APE",
+        "total_baggages": 3,
+        "nonfree_baggages": 0,
+        "payment_id": "gift_card_8190333"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated reservation FQ8APE to economy with flights HAT056 on 2024-05-25, HAT138 on 2024-05-25; updated the passengers on reservation FQ8APE; updated reservation FQ8APE to 3 bags (0 paid).",
+      "keywords": []
+    }
+  ]
+}

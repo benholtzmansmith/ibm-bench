@@ -1,0 +1,24 @@
+# ADK evaluation config (smoke run). Run from the repo root:
+#   orchestrate evaluations evaluate -c airline/evaluations/config.smoke.yaml
+auth_config:
+  url: http://localhost:4321
+  tenant_name: local
+test_paths:
+  - airline/evaluations/test_cases/airline_task_001.json
+  - airline/evaluations/test_cases/airline_task_013.json
+  - airline/evaluations/test_cases/airline_task_016.json
+  - airline/evaluations/test_cases/airline_task_043.json
+  - airline/evaluations/test_cases/airline_task_044.json
+output_dir: results/smoke
+# The simulated user and the judge both call the virtual model through the
+# local Orchestrate AI gateway, so no separate provider key is needed.
+llm_user_config:
+  provider_config:
+    provider: gateway
+    model_id: virtual-model/anthropic/claude-sonnet-5-5
+evaluation_config:
+  provider_config:
+    provider: gateway
+    model_id: virtual-model/anthropic/claude-sonnet-5-5
+max_user_turns: 30
+num_workers: 2

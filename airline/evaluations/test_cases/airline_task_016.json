@@ -1,0 +1,37 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is ethan_martin_2396 and you are contacting to complain about your delayed flight HAT039 from ATL to SEA. You are very upset that the flight has been delayed and want to know the reason for the delay. You also want the airline to compensate you for the delay. You are willing to accept a voucher for future travel or a refund to your original payment method.",
+  "goals": {
+    "get_user_details-1": [
+      "send_certificate-1"
+    ],
+    "send_certificate-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "ethan_martin_2396"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "send_certificate-1",
+      "tool_name": "send_certificate",
+      "args": {
+        "user_id": "ethan_martin_2396",
+        "amount": 150
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent sent a $150 certificate to ethan_martin_2396.",
+      "keywords": []
+    }
+  ]
+}

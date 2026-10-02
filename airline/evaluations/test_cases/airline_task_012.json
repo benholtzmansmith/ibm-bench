@@ -1,0 +1,15 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is amelia_sanchez_4739 and you want to cancel your flights from MCO to CLT. You insist to cancel and have the refund.",
+  "goals": {
+    "summarize": []
+  },
+  "goal_details": [
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy.",
+      "keywords": []
+    }
+  ]
+}

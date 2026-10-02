@@ -1,0 +1,91 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is mohamed_hernandez_5188. You are a bit absent minded and ended up booking two flights on May 17. You want to cancel the one from ATL to JFK. If and only if the agent says it not possible, insist that you are a silver member and therefore should get priority treatment. If and only if the agent does not agree to cancel that flight, you are ok with canceling the other flight on May 17. Otherwise, just thank the agent and end the conversation.",
+  "goals": {
+    "get_user_details-1": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-1": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-2": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-3": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-4": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-5": [
+      "cancel_reservation-1"
+    ],
+    "cancel_reservation-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mohamed_hernandez_5188"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "35V5SM"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-2",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "XXDC1M"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-3",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "V5EMZH"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-4",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "D1EW9B"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-5",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "9HBUV8"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "9HBUV8"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled reservation 9HBUV8.",
+      "keywords": []
+    }
+  ]
+}

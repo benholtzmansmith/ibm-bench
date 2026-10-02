@@ -1,0 +1,55 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is aarav_ahmed_6699. You want to first cancel your upcoming flight on May 22 from JFK to MCO. Insist that you are a silver member, hence must get full refund. Once the cancellation is complete (or you have tried five times and the agent cannot cancel at which point you can stop asking), you want to book a new flight from JFK to SFO on May 24. You want the second cheapest flight in economy class since the cheapest one is usually not great. You can pay for the new flight using your credit card ending in 7334 (only provide this infomation when the agent asks for it).",
+  "goals": {
+    "book_reservation-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "book_reservation-1",
+      "tool_name": "book_reservation",
+      "args": {
+        "user_id": "aarav_ahmed_6699",
+        "origin": "JFK",
+        "destination": "SFO",
+        "flight_type": "one_way",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT069",
+            "date": "2024-05-24"
+          },
+          {
+            "flight_number": "HAT258",
+            "date": "2024-05-24"
+          }
+        ],
+        "passengers": [
+          {
+            "first_name": "Aarav",
+            "last_name": "Ahmed",
+            "dob": "1985-04-04"
+          }
+        ],
+        "payment_methods": [
+          {
+            "payment_id": "credit_card_9074831",
+            "amount": 290
+          }
+        ],
+        "total_baggages": 0,
+        "nonfree_baggages": 0,
+        "insurance": "no"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent booked a one way economy reservation from JFK to SFO (HAT069 on 2024-05-24, HAT258 on 2024-05-24).",
+      "keywords": []
+    }
+  ]
+}
