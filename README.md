@@ -46,8 +46,8 @@ Two behaviors differ from tau-bench:
 ## Offline checks
 
 ```bash
-python -m venv .venv && . .venv/bin/activate
-pip install -r requirements-dev.txt
+uv venv --python 3.12 && . .venv/bin/activate
+uv pip install -r requirements-dev.txt
 pytest
 ```
 
@@ -55,7 +55,7 @@ These tests check that the agent, tool and model specs load with the ADK and tha
 
 ## Running against a local Orchestrate
 
-Requires Docker and these environment variables:
+Requires Docker, the venv above (so `orchestrate` is on your PATH), and these environment variables:
 
 - `WO_ENTITLEMENT_KEY`: IBM entitlement key, used to pull the Developer Edition images from `cp.icr.io`.
 - `ANTHROPIC_API_KEY`: the key behind the virtual model `virtual-model/anthropic/claude-sonnet-5-5`.
