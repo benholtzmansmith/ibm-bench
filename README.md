@@ -55,18 +55,19 @@ These tests check that the agent, tool and model specs load with the ADK and tha
 
 ## Running against a local Orchestrate
 
-Requires Docker, the venv above (so `orchestrate` is on your PATH), and these environment variables:
-
-- `WO_ENTITLEMENT_KEY`: IBM entitlement key, used to pull the Developer Edition images from `cp.icr.io`.
-- `ANTHROPIC_API_KEY`: the key behind the virtual model `virtual-model/anthropic/claude-sonnet-5-5`.
+Requires Docker and the venv above (so `orchestrate` is on your PATH). Put the keys in `.env`, which `orchestrate server start --env-file` reads:
 
 ```bash
+cp .env.example .env        # then set WO_ENTITLEMENT_KEY and ANTHROPIC_API_KEY; .env is gitignored
 scripts/setup_local.sh      # server start, connection + virtual model, tools + agent import
 scripts/run_evals.sh smoke  # 5 tasks; use `full` for all 50
 orchestrate evaluations analyze -d results/smoke
 ```
 
-The agent, the simulated user and the judge all call the virtual model through the local AI gateway. Developer Edition refuses to start without a Groq or watsonx.ai credential even when nothing uses it, so `setup_local.sh` sets a placeholder `GROQ_API_KEY` unless you provide a real one.
+- `WO_ENTITLEMENT_KEY`: IBM entitlement key, used to pull the Developer Edition images from `cp.icr.io`.
+- `ANTHROPIC_API_KEY`: the key behind the virtual model `virtual-model/anthropic/claude-sonnet-5-5`.
+
+The agent, the simulated user and the judge all call the virtual model through the local AI gateway. Developer Edition refuses to start without a Groq or watsonx.ai credential even when nothing uses it, so `.env.example` sets a placeholder `GROQ_API_KEY`.
 
 To try another model, add a spec under `airline/models/` and change `llm` in the agent YAML and `model_id` in the eval configs.
 

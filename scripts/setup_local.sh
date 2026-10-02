@@ -2,35 +2,28 @@
 # Start a local watsonx Orchestrate Developer Edition server, register the
 # virtual model, and import the tau-bench airline tools and agent.
 #
-# Required environment variables (never commit these):
+# Reads .env in the repo root (copy .env.example and fill it in). It is passed
+# to `orchestrate server start --env-file` and must set:
 #   WO_ENTITLEMENT_KEY  IBM entitlement key, used to pull the Developer Edition images
 #   ANTHROPIC_API_KEY   key behind the virtual model
-# Optional:
-#   GROQ_API_KEY / WATSONX_APIKEY + WATSONX_SPACE_ID
-#                       Developer Edition refuses to start without one of these.
-#                       The airline agent never uses them, so a placeholder is set
-#                       when none is provided.
+# Optional, from the environment:
 #   WO_CERT_BUNDLE      CA bundle for the containers, for networks behind a TLS-inspecting proxy
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-: "${WO_ENTITLEMENT_KEY:?set WO_ENTITLEMENT_KEY}"
-: "${ANTHROPIC_API_KEY:?set ANTHROPIC_API_KEY}"
-
-ENV_FILE="$(mktemp)"
-trap 'rm -f "$ENV_FILE"' EXIT
-{
-  echo "WO_DEVELOPER_EDITION_SOURCE=myibm"
-  echo "WO_ENTITLEMENT_KEY=$WO_ENTITLEMENT_KEY"
-  if [[ -n "${WATSONX_APIKEY:-}" ]]; then
-    echo "WATSONX_APIKEY=$WATSONX_APIKEY"
-    echo "WATSONX_SPACE_ID=${WATSONX_SPACE_ID:?set WATSONX_SPACE_ID with WATSONX_APIKEY}"
-  else
-    echo "GROQ_API_KEY=${GROQ_API_KEY:-unused-placeholder}"
-  fi
-} > "$ENV_FILE"
+ENV_FILE="${ENV_FILE:-$ROOT/.env}"
+if [[ ! -f "$ENV_FILE" ]]; then
+  echo "Missing $ENV_FILE. Run: cp .env.example .env, then fill in the keys." >&2
+  exit 1
+fi
+set -a
+# shellcheck disable=SC1090
+source "$ENV_FILE"
+set +a
+: "${WO_ENTITLEMENT_KEY:?set WO_ENTITLEMENT_KEY in $ENV_FILE}"
+: "${ANTHROPIC_API_KEY:?set ANTHROPIC_API_KEY in $ENV_FILE}"
 
 START_ARGS=(--env-file "$ENV_FILE" --accept-terms-and-conditions)
 if [[ -n "${WO_CERT_BUNDLE:-}" ]]; then
