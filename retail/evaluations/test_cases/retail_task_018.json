@@ -1,0 +1,78 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return the office chair because it came with some broken pieces. But if the agent asks you for confirm, you say you want to rethink for a while, and then change your mind to exchange for the same item. If the agent mentions that the same product is not available, ask for a gray office chair with fixed armrest made of leather instead.\n\tKnown info:\n\t\tYou are Mei Davis in zipcode 80217.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are in debt and sad today, but very brief.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Mei",
+        "last_name": "Davis",
+        "zip": "80217"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mei_davis_8935"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2890441"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "4794339885"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W2890441",
+        "item_ids": [
+          "8069050545"
+        ],
+        "new_item_ids": [
+          "1071497737"
+        ],
+        "payment_method_id": "credit_card_1061405"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 8069050545 in order #W2890441 for 1071497737, settling the difference with credit_card_1061405.",
+      "keywords": []
+    }
+  ]
+}

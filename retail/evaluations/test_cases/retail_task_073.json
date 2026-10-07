@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return everything you just bought except the coffee machine.\n\tKnown info:\n\t\tYou name is Fatima Wilson and your email is fatima.wilson5721@example.com.\n\tTask instructions:\n\t\tYou are polite, flexible, creative.",
+  "goals": {
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W5272531",
+        "item_ids": [
+          "7228247242",
+          "2698416822",
+          "8098621301",
+          "3320557165"
+        ],
+        "payment_method_id": "credit_card_6824399"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 7228247242, 2698416822, 8098621301, 3320557165 from order #W5272531 with the refund to credit_card_6824399.",
+      "keywords": []
+    }
+  ]
+}

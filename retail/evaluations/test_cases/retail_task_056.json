@@ -1,0 +1,100 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou wonder when is your air purifier is arriving. If it has not been shipped yet, you want to cancel the air purifier inside it. If you cannot cancel just the air purifier, you want to modify it to the cheapest possible air purifier, and refund to the gift card. You do not remember your gift card id but it should be in your user account. If you cannot modify it or refund to the gift card, no action.\n\tKnown info:\n\t\tYou are ivan_hernandez_6923 living in San Diego, 92133.\n\tUnknown info:\n\t\tYou don't have an email.\n\tTask instructions:\n\t\tYou are polite but brief and firm.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Ivan",
+        "last_name": "Hernandez",
+        "zip": "92133"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "ivan_hernandez_6923"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5838674"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4284542"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2782744"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "3821016478"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W4284542",
+        "item_ids": [
+          "8302289002"
+        ],
+        "new_item_ids": [
+          "9534205511"
+        ],
+        "payment_method_id": "gift_card_9368765"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 8302289002 in order #W4284542 to 9534205511, settling the difference with gift_card_9368765.",
+      "keywords": []
+    }
+  ]
+}

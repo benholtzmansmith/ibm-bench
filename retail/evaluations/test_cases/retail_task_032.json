@@ -1,0 +1,167 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just lost your tablet you just received and are in a bad mood. You want to know the tracking number of the order, and if the agent can help you refund or reorder the tablet. (You know it's a long shot, but you want to try). If not, cancel the charger you just bought, because it goes with the tablet... Also cancel the boot and kettle, and return the sneaker.\n\tKnown info:\n\t\tYou are Olivia Lopez, and you live in Texas in zipcode 76171.\n\tUnknown info:\n\t\tYou don't have an email.\n\tTask instructions:\n\t\tYou like to do one thing at a time, and reveal minimal information about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_user_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-2": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-3": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-4": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-5": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-6": [
+      "cancel_pending_order-1"
+    ],
+    "cancel_pending_order-1": [
+      "cancel_pending_order-2"
+    ],
+    "get_order_details-7": [
+      "cancel_pending_order-2"
+    ],
+    "cancel_pending_order-2": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-8": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Olivia",
+        "last_name": "Lopez",
+        "zip": "76171"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "olivia_lopez_3865"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9319364"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9373487"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2692684"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5481803"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-5",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7449508"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-6",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9373487"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W9373487",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-7",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5481803"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-2",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W5481803",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-8",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7449508"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7449508",
+        "item_ids": [
+          "6477915553"
+        ],
+        "payment_method_id": "gift_card_7711863"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W9373487 because it was no longer needed; cancelled order #W5481803 because it was no longer needed; returned items 6477915553 from order #W7449508 with the refund to gift_card_7711863. The agent told the user: 746342064230.",
+      "keywords": [
+        "746342064230"
+      ]
+    }
+  ]
+}

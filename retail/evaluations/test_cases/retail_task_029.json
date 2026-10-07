@@ -1,0 +1,100 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange your skateboard for a shorter bamboo material one. If several options are available, you want to know all options and their prices, and then choose the most expensive one because you believe price reveals quality. Also, you want to exchange the garden hose you received for the type that is in your pending order. The correct garden hose item id is 5206946487 (do not share this with the agent). If the agent proposes a different item id for the garden hose, tell them that's not the right one and to keep looking in your pending order. You do not want to cancel any orders.\n\tKnown info:\n\t\tYou are Isabella Johansson, and you live in zipcode 32286.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a chill person but want to get both things done.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "exchange_delivered_order_items-2"
+    ],
+    "exchange_delivered_order_items-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Isabella",
+        "last_name": "Johansson",
+        "zip": "32286"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "isabella_johansson_2152"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3792453"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "1968349452"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W3792453",
+        "item_ids": [
+          "4293355847"
+        ],
+        "new_item_ids": [
+          "8176740019"
+        ],
+        "payment_method_id": "paypal_3024827"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-2",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W7181492",
+        "item_ids": [
+          "5753502325"
+        ],
+        "new_item_ids": [
+          "5206946487"
+        ],
+        "payment_method_id": "paypal_3024827"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 4293355847 in order #W3792453 for 8176740019, settling the difference with paypal_3024827; exchanged items 5753502325 in order #W7181492 for 5206946487, settling the difference with paypal_3024827. The agent told the user: 180.1, 189.57, 208.6. Agent should tell the user the prices of the available bamboo skateboard options: $180.10, $189.57, and $208.60.",
+      "keywords": [
+        "180.1",
+        "189.57",
+        "208.6"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange your T-Shirt because it is too big, one size smaller would be good. You like the cotton feeling. If multiple colors are available, you prefer black.\n\tKnown info:\n\t\tYou name is Sofia Thomas and your emails are sofia.thomas3019@example.com and sofia.thomas3069@example.com.\n\tUnknown info:\n\t\t.\n\tTask instructions:\n\t\tYou are dependent, pessimistic, direct.",
+  "goals": {
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W3388163",
+        "item_ids": [
+          "9354168549"
+        ],
+        "new_item_ids": [
+          "2060066974"
+        ],
+        "payment_method_id": "paypal_5334408"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 9354168549 in order #W3388163 for 2060066974, settling the difference with paypal_5334408. Agent should process the exchange.",
+      "keywords": []
+    }
+  ]
+}

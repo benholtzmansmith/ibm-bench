@@ -1,0 +1,62 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to know how much balance does your gift card have. Also, for your recent order, whether you used your visa, mastercard, or amex credit card. You also wonder if you can apply the gift card balance to the order. If not, you want to change your payment method to visa, because the other two cards have a lot of balance.\n\tKnown info:\n\t\tYou are Isabella Lopez, and your email address is isabella.lopez3271@example.com.\n\tTask instructions:\n\t\tYou are a young college student under the pressure of final exams and student loans, so you are a bit anxious and want to get things done quickly.",
+  "goals": {
+    "find_user_id_by_email-1": [
+      "modify_pending_order_payment-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_payment-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_payment-1"
+    ],
+    "modify_pending_order_payment-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-1",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "isabella.lopez3271@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "isabella_lopez_6490"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4923227"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_payment-1",
+      "tool_name": "modify_pending_order_payment",
+      "args": {
+        "order_id": "#W4923227",
+        "payment_method_id": "credit_card_8897086"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the payment method of order #W4923227 to credit_card_8897086. The agent told the user: 60, mastercard. Agent should tell the user their gift card balance is $60. Agent should tell the user their recent order was paid with a Mastercard.",
+      "keywords": [
+        "60",
+        "mastercard"
+      ]
+    }
+  ]
+}

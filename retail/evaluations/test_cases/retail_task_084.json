@@ -1,0 +1,29 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou received two tablets and you only need one. You want to return the less expensive one and refund to credit card. But when the agent asks for confirmation, you change your mind and return the more expensive one and ask for a refund to gift card.\n\tKnown info:\n\t\tYou name is Chen Silva and your zip code is 46281.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are messy, flexible, outgoing.",
+  "goals": {
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W9571698",
+        "item_ids": [
+          "6065192424"
+        ],
+        "payment_method_id": "gift_card_7250692"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 6065192424 from order #W9571698 with the refund to gift_card_7250692.",
+      "keywords": []
+    }
+  ]
+}

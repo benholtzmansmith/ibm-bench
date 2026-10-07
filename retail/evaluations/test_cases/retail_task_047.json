@@ -1,0 +1,107 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return an air purifier and a vacuum cleaner in your recent order. When asked for order ID, provide 9502126 first. If the agent asks you to double check, then say that you made a mistake and provide 9502127. If that doesn't work, say that you forgot the 'W' at the beginning. If the agent asks you for which vacuum cleaner, mention the canister one.  Ask the agent explicitly to provide the refund within 3 days and the total amount of the refund you should expect. After the return is complete, ask the agent about the total amount you paid for the remaining items in the same order.\n\tKnown info:\n\t\tYou are daiki_johnson_9523 living in Denver, USA, 80273.\n\tUnknown info:\n\t\tYou do not remember your email address.\n\tTask instructions:\n\t\tYou are impatient and want the refund as soon as possible.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-3": [
+      "return_delivered_order_items-1"
+    ],
+    "calculate-1": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "summarize"
+    ],
+    "calculate-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Daiki",
+        "last_name": "Johnson",
+        "zip": "80273"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#9502126"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#9502127"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9502127"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "622.12 + 473.43"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W9502127",
+        "item_ids": [
+          "2872451762",
+          "9534205511"
+        ],
+        "payment_method_id": "paypal_2433177"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-2",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "2623.69 - 1095.55"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 2872451762, 9534205511 from order #W9502127 with the refund to paypal_2433177. The agent told the user: 1095.55, 1528.14. Agent should tell the user the total refund amount is $1,095.55. Agent should tell the user the total paid for remaining items is $1,528.14.",
+      "keywords": [
+        "1095.55",
+        "1528.14"
+      ]
+    }
+  ]
+}

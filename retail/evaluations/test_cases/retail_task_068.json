@@ -1,0 +1,64 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to check how much you paid for the order that you most recently placed. You are not sure how long ago the order was placed.\n\tKnown info:\n\t\tYou are user noah_ito_3850 living in Seattle WA 98187.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tIf asked for your zip code, say that it is 98178 first (common mistake), then correct yourself and say 98187 if an error is found.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "summarize"
+    ],
+    "find_user_id_by_name_zip-2": [
+      "summarize"
+    ],
+    "get_user_details-1": [
+      "summarize"
+    ],
+    "get_order_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Noah",
+        "last_name": "Ito",
+        "zip": "98178"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-2",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Noah",
+        "last_name": "Ito",
+        "zip": "98187"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "noah_ito_3850"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6729841"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any order or user. The agent told the user: 829.43. Agent should tell the user the order total is $829.43.",
+      "keywords": [
+        "829.43"
+      ]
+    }
+  ]
+}

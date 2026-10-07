@@ -1,0 +1,67 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just placed an order but you realize that your card has only $950 credit left, but the order total is more than $1100. You wonder if the agent can help split the payment with another card. If not, you wonder what the most expensive item and its price, and if you can just cancel that item. If not, you wonder if you can switch all items to their cheapest options and bring the cost down to $950. If not, you wonder if the agent can just cancel the order so that you can order again.\n\tKnown info:\n\t\tYour name is Daiki Sanchez, and you live in 46236, your email is daikisanchez1479@example.com.\n\tTask instructions:\n\t\tYou are a bit anxious and want to get things done quickly, and you speak very briefly.",
+  "goals": {
+    "find_user_id_by_email-1": [
+      "cancel_pending_order-1"
+    ],
+    "find_user_id_by_name_zip-1": [
+      "cancel_pending_order-1"
+    ],
+    "calculate-1": [
+      "cancel_pending_order-1"
+    ],
+    "cancel_pending_order-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-1",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "daikisanchez1479@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Daiki",
+        "last_name": "Sanchez",
+        "zip": "46236"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "466.75 + 288.82 + 135.24 + 193.38 + 46.66"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W9348897",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W9348897 because it was no longer needed. The agent told the user: camera, 481.50. Agent should tell the user the most expensive item in the order is the camera. Agent should tell the user the camera costs $481.50.",
+      "keywords": [
+        "camera",
+        "481.50"
+      ]
+    }
+  ]
+}

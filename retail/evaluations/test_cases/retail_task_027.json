@@ -1,0 +1,89 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tFrom a recent order, you want to return the hose, backpack, and exchange the hiking boots to the exact same item but a waterproof variant. Make sure you mention the two requests at the same time, and if the agent says they can only do one, you prefer to do the exchange.\n\tKnown info:\n\t\tYou are Isabella Johansson, and you live in zipcode 32286.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a bit anxious and want to get things done quickly.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Isabella",
+        "last_name": "Johansson",
+        "zip": "32286"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "isabella_johansson_2152"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3792453"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7181492"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "7363354090"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W7181492",
+        "item_ids": [
+          "8118291112"
+        ],
+        "new_item_ids": [
+          "8277474082"
+        ],
+        "payment_method_id": "paypal_3024827"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 8118291112 in order #W7181492 for 8277474082, settling the difference with paypal_3024827.",
+      "keywords": []
+    }
+  ]
+}

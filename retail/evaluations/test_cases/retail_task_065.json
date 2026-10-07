@@ -1,0 +1,49 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange the bookshelf from your most recent order for a camera that is closest but not more expensive than the price of the bookshelf.\n\tKnown info:\n\t\tYou are James Kovacs from San Jose CA, 95190.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\t.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "summarize"
+    ],
+    "get_user_details-1": [
+      "summarize"
+    ],
+    "get_order_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "James",
+        "last_name": "Kovacs",
+        "zip": "95190"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "james_kovacs_9247"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5362037"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any order or user.",
+      "keywords": []
+    }
+  ]
+}

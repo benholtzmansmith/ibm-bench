@@ -1,0 +1,91 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tFor some reason, you want to return all things ordered. You have two payment methods and two orders, and you want to refund each order to the other order's payment method. If not possible, you are angry and swear for a few times, then agree to return all things with the original payment method.\n\tKnown info:\n\t\tYou are mia_garcia_4516 (mia.garcia2723@example.com).\n\tTask instructions:\n\t\tYou are a mysterious person and do not want to reveal much about yourself or speak too many words at the same time.",
+  "goals": {
+    "find_user_id_by_email-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "return_delivered_order_items-2"
+    ],
+    "return_delivered_order_items-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-1",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "mia.garcia2723@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mia_garcia_4516"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5490111"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7387996"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W5490111",
+        "item_ids": [
+          "4579334072",
+          "1421289881",
+          "6117189161",
+          "4947717507"
+        ],
+        "payment_method_id": "credit_card_3124723"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-2",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7387996",
+        "item_ids": [
+          "5796612084"
+        ],
+        "payment_method_id": "paypal_9497703"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 4579334072, 1421289881, 6117189161, 4947717507 from order #W5490111 with the refund to credit_card_3124723; returned items 5796612084 from order #W7387996 with the refund to paypal_9497703.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just moved from Florida to Phoenix. Unfortunately your address is still the old one, and you want to update it. Your current address should be in your recent order (you can mention this to the agent), and you do not want to reveal it. Also, you want to know what is the price of the cheapest available t-shirt right now, and if you can order it through the agent.\n\tKnown info:\n\t\tYou are fatima_taylor_3452, and you just moved from Florida (32169) to Phoenix (85033).\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a funny person with lots of jokes, and you want to make the agent laugh.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_user_address-1"
+    ],
+    "find_user_id_by_name_zip-2": [
+      "modify_user_address-1"
+    ],
+    "get_user_details-1": [
+      "modify_user_address-1"
+    ],
+    "get_order_details-1": [
+      "modify_user_address-1"
+    ],
+    "modify_user_address-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Fatima",
+        "last_name": "Taylor",
+        "zip": "85033"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-2",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Fatima",
+        "last_name": "Taylor",
+        "zip": "32169"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "fatima_taylor_3452"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5285031"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-1",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "fatima_taylor_3452",
+        "address1": "157 Oak Street",
+        "address2": "Suite 258",
+        "city": "Phoenix",
+        "state": "AZ",
+        "country": "USA",
+        "zip": "85033"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the default address of fatima_taylor_3452 to 157 Oak Street, Suite 258, Phoenix, AZ, 85033, USA. The agent told the user: 46.66. Agent should tell the user the cheapest t-shirt costs $46.66.",
+      "keywords": [
+        "46.66"
+      ]
+    }
+  ]
+}

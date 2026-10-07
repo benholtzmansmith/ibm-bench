@@ -1,0 +1,15 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou wonder when is your order W4284542 is arriving. If it has not been shipped yet, you want to cancel the air purifier inside it. If you cannot cancel just the air purifier, you want to cancel the whole order and refund to gift card. If you cannot refund to the gift card, no cancelation at all.\n\tKnown info:\n\t\tYou are ivan_hernandez_6923 living in San Diego, 92133.\n\tUnknown info:\n\t\tYou do not know your email.\n\tTask instructions:\n\t\tYou are polite but brief and firm.",
+  "goals": {
+    "summarize": []
+  },
+  "goal_details": [
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any order or user.",
+      "keywords": []
+    }
+  ]
+}

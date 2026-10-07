@@ -1,0 +1,82 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou have an order sent to Texas by accident, and you want to know the tracking number of the order, and return all items in it except the pet bed. You want the refund to your amex credit card, and if the agent cannot help, transfer to a human. You don't remember the order number. It is urgent.\n\tKnown info:\n\t\tYou are Isabella Johansson, and you live in zipcode 32286.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\t.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "summarize"
+    ],
+    "get_user_details-1": [
+      "summarize"
+    ],
+    "get_order_details-1": [
+      "summarize"
+    ],
+    "get_order_details-2": [
+      "summarize"
+    ],
+    "get_order_details-3": [
+      "summarize"
+    ],
+    "get_order_details-4": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Isabella",
+        "last_name": "Johansson",
+        "zip": "32286"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "isabella_johansson_2152"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3792453"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7181492"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5565470"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2575533"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any order or user.",
+      "keywords": []
+    }
+  ]
+}

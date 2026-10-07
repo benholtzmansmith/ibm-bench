@@ -1,0 +1,170 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou recently faced a financial issue and want to cancel or return all possible orders. First, cancel the orders that haven't arrived yet. Then, return everything from the orders that have been delivered \u2014 you don't remember exactly which items you ordered, so ask the agent to list them before proceeding with the returns.\n\tKnown info:\n\t\tYou are Amelia, and you have two emails: silva7872@example.com and amelia.silva7872@example.com. You live in Philadelphia, and you are a loyal customer.\n\tTask instructions:\n\t\tYou are now emotional and a bit stressed out. You like to talk a lot and explain your situation.",
+  "goals": {
+    "find_user_id_by_email-1": [
+      "cancel_pending_order-1"
+    ],
+    "find_user_id_by_email-2": [
+      "cancel_pending_order-1"
+    ],
+    "get_user_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-2": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-3": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-4": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-5": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-6": [
+      "cancel_pending_order-1"
+    ],
+    "cancel_pending_order-1": [
+      "cancel_pending_order-2"
+    ],
+    "cancel_pending_order-2": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "return_delivered_order_items-2"
+    ],
+    "return_delivered_order_items-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-1",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "silva7872@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-2",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "amelia.silva7872@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "amelia_silva_7726"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2586676"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5400801"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4597054"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4836353"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-5",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7773202"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-6",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7342738"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W4836353",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-2",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W7342738",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W4597054",
+        "item_ids": [
+          "5669664287",
+          "4900990404",
+          "9862136885",
+          "6777246137"
+        ],
+        "payment_method_id": "gift_card_3491931"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-2",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7773202",
+        "item_ids": [
+          "8277474082"
+        ],
+        "payment_method_id": "gift_card_3491931"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W4836353 because it was no longer needed; cancelled order #W7342738 because it was no longer needed; returned items 5669664287, 4900990404, 9862136885, 6777246137 from order #W4597054 with the refund to gift_card_3491931; returned items 8277474082 from order #W7773202 with the refund to gift_card_3491931.",
+      "keywords": []
+    }
+  ]
+}

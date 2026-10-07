@@ -1,0 +1,34 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tFor order #W4316152, you want to  exchange one Tea Kettle {'material': 'glass', 'capacity': '2 liters', 'stovetop compatibility': 'induction'} to {'material': 'ceramic', 'stovetop compatibility': 'gas'}; and another Tea Kettle {'material': 'glass', 'capacity': '2 liters', 'stovetop compatibility': 'induction'} to {'capacity': '1.5 liters', 'stovetop compatibility': 'gas'};\n\tKnown info:\n\t\tYou name is Aarav Anderson and your zip code is 19031.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are cautious, messy, rigid.",
+  "goals": {
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W4316152",
+        "item_ids": [
+          "7292993796",
+          "7292993796"
+        ],
+        "new_item_ids": [
+          "3761330360",
+          "9647374798"
+        ],
+        "payment_method_id": "gift_card_7245904"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 7292993796, 7292993796 in order #W4316152 for 3761330360, 9647374798, settling the difference with gift_card_7245904. Agent should exchange both tea kettles (same style) to the items requested",
+      "keywords": []
+    }
+  ]
+}

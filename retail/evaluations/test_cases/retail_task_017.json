@@ -1,0 +1,88 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to change #W8665881 to be delivered to Suite 641 instead.\n\tKnown info:\n\t\tYou are Fatima Johnson in zipcode 78712.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a private person that does not want to reveal much about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_address-1"
+    ],
+    "modify_pending_order_address-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Fatima",
+        "last_name": "Johnson",
+        "zip": "78712"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "fatima_johnson_7581"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5199551"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W8665881"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9389413"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W8665881",
+        "address1": "123 Elm Street",
+        "address2": "Suite 641",
+        "city": "Austin",
+        "state": "TX",
+        "country": "USA",
+        "zip": "78712"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the shipping address of order #W8665881 to 123 Elm Street, Suite 641, Austin, TX, 78712, USA.",
+      "keywords": []
+    }
+  ]
+}

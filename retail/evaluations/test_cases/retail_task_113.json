@@ -1,0 +1,38 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to cancel all pending orders.\n\tKnown info:\n\t\tYou name is Yara Muller and your zip code is 85041.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are mysterious and  don't want to reveal the reason for cancellation until the agent asks. If asked for reason, say you ordered the items by mistake.",
+  "goals": {
+    "cancel_pending_order-1": [
+      "cancel_pending_order-2"
+    ],
+    "cancel_pending_order-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W5056519",
+        "reason": "ordered by mistake"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-2",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W5995614",
+        "reason": "ordered by mistake"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W5056519 because it was ordered by mistake; cancelled order #W5995614 because it was ordered by mistake. Agent should cancel all pending orders",
+      "keywords": []
+    }
+  ]
+}

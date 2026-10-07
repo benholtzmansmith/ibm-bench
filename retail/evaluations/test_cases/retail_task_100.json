@@ -1,0 +1,49 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return your luggage set and get the exact same item but with red color, and return you skateboard in the same order to get a new one with features {'length': '34 inch', 'design': 'custom'}. For the pending order modification, you want to use your credit card. You also want to return the hiking boots.\n\tKnown info:\n\t\tYou name is Liam Thomas and your zip code is 85049.\n\tUnknown info:\n\t\tYou do not remember your email address.\n\tTask instructions:\n\t\tYou are pessimistic and an  insecure person.\n\t\tIf the agent says pending orders cannot be exchanged, ask for changing the order to your requirements.",
+  "goals": {
+    "modify_pending_order_items-1": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W3295833",
+        "item_ids": [
+          "8926329222",
+          "5312063289"
+        ],
+        "new_item_ids": [
+          "7160999700",
+          "6956751343"
+        ],
+        "payment_method_id": "credit_card_3261838"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W8488728",
+        "item_ids": [
+          "5676696062"
+        ],
+        "payment_method_id": "paypal_3650980"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 8926329222, 5312063289 in order #W3295833 to 7160999700, 6956751343, settling the difference with credit_card_3261838; returned items 5676696062 from order #W8488728 with the refund to paypal_3650980.",
+      "keywords": []
+    }
+  ]
+}

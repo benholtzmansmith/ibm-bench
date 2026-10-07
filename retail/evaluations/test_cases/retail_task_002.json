@@ -1,0 +1,145 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to know exactly how many tshirt options are available in the online store right now. You want to also return the cleaner, headphone, and smart watch.\n\tKnown info:\n\t\tYou are Yusuf Rossi in zip code 19122.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\t.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_product_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-3": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-4": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-5": [
+      "return_delivered_order_items-1"
+    ],
+    "get_product_details-3": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Yusuf",
+        "last_name": "Rossi",
+        "zip": "19122"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "6086499569"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-2",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "9523456873"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "yusuf_rossi_9620"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6247578"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9711842"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4776164"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6679257"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-5",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2378156"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-3",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "9523456873"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W2378156",
+        "item_ids": [
+          "4602305039",
+          "4202497723",
+          "9408160950"
+        ],
+        "payment_method_id": "credit_card_9513926"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 4602305039, 4202497723, 9408160950 from order #W2378156 with the refund to credit_card_9513926. The agent told the user: 10. Agent should tell the user that there are 10 t-shirt options available.",
+      "keywords": [
+        "10"
+      ]
+    }
+  ]
+}

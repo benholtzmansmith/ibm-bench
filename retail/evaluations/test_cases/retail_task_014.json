@@ -1,0 +1,88 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just quit gaming and want to cancel or return everything associated with it. (It's just a keyboard and a mouse, but do not reveal it to the agent). Original payment is preferred.\n\tKnown info:\n\t\tYou are mia_garcia_4516 with email mia.garcia2723@example.com\n\tTask instructions:\n\t\tYou are into gaming but realized the importance of studying hard.",
+  "goals": {
+    "find_user_id_by_email-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "return_delivered_order_items-2"
+    ],
+    "return_delivered_order_items-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-1",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "mia.garcia2723@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mia_garcia_4516"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5490111"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7387996"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W5490111",
+        "item_ids": [
+          "1421289881"
+        ],
+        "payment_method_id": "credit_card_3124723"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-2",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7387996",
+        "item_ids": [
+          "5796612084"
+        ],
+        "payment_method_id": "paypal_9497703"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 1421289881 from order #W5490111 with the refund to credit_card_3124723; returned items 5796612084 from order #W7387996 with the refund to paypal_9497703.",
+      "keywords": []
+    }
+  ]
+}

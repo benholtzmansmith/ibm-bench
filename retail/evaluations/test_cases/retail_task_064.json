@@ -1,0 +1,118 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange the camera for the highest resolution, waterproof camera that you can get with the previous purchaced price.\n\tKnown info:\n\t\tYou are James Sanchez. You live in Chicago 60623.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\t.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-3": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "James",
+        "last_name": "Sanchez",
+        "zip": "60623"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "james_sanchez_3954"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7464385"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W8499625"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W1279004"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "3377618313"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W7464385",
+        "item_ids": [
+          "1810466394"
+        ],
+        "new_item_ids": [
+          "6700049080"
+        ],
+        "payment_method_id": "paypal_1261484"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W7464385",
+        "item_ids": [
+          "1810466394"
+        ],
+        "new_item_ids": [
+          "6700049080"
+        ],
+        "payment_method_id": "paypal_1261484"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 1810466394 in order #W7464385 for 6700049080, settling the difference with paypal_1261484; changed items 1810466394 in order #W7464385 to 6700049080, settling the difference with paypal_1261484.",
+      "keywords": []
+    }
+  ]
+}

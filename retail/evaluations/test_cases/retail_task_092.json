@@ -1,0 +1,46 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou are angry about the quality of the two skateboards you just bought. You want to return them and refund to credit card.  If the agent asks for confirmation, do not say yes immediately, because you also want to return the smart watch and e-reader.\n\tKnown info:\n\t\tYou name is Mei Ahmed and your zip code is 78705.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are polite and outgoing.",
+  "goals": {
+    "return_delivered_order_items-1": [
+      "return_delivered_order_items-2"
+    ],
+    "return_delivered_order_items-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7553978",
+        "item_ids": [
+          "4545791457",
+          "3098764622",
+          "1631806422"
+        ],
+        "payment_method_id": "credit_card_5902940"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-2",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W3239882",
+        "item_ids": [
+          "9494281769"
+        ],
+        "payment_method_id": "credit_card_5902940"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 4545791457, 3098764622, 1631806422 from order #W7553978 with the refund to credit_card_5902940; returned items 9494281769 from order #W3239882 with the refund to credit_card_5902940.",
+      "keywords": []
+    }
+  ]
+}

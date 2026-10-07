@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # Start a local watsonx Orchestrate Developer Edition server, register the
-# virtual model, and import the tau-bench airline tools and agent.
+# virtual model, and import the benchmark tools and agents.
 # To use a SaaS instance instead, see setup_remote.sh.
+#
+# Usage: scripts/setup_local.sh [airline|retail]   (default: airline)
+#   The two benchmarks share tool names (calculate, get_user_details,
+#   transfer_to_human_agents) with different behavior, so an environment holds
+#   one benchmark at a time. Re-run with the other name to switch.
 #
 # Reads .env in the repo root (copy .env.example and fill it in). It is passed
 # to `orchestrate server start --env-file` and must set:
@@ -33,4 +38,4 @@ fi
 orchestrate server start "${START_ARGS[@]}"
 orchestrate env activate local
 
-scripts/import_airline.sh
+scripts/import_"${1:-airline}".sh

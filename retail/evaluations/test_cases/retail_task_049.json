@@ -1,0 +1,136 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou mistakenly ordered a Wireless Earbud with an IPX7 water resistance level, but you don't require this feature. You wish to exchange it for one with the same water resistance level as the other Wireless Earbuds that you've purchased. In fact, you want to exchange it to the cheapest earbud item from the rest of that order.\n\tKnown info:\n\t\tYou are Aarav Anderson, residing in Philadelphia 19031.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are polite and concise, yet assertive.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-3": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-4": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-5": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "calculate-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Aarav",
+        "last_name": "Anderson",
+        "zip": "19031"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "aarav_anderson_8794"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4316152"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9311069"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9300146"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3220203"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-5",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3470184"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "9924732112"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "258.97 - 232.49"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W3470184",
+        "item_ids": [
+          "2757705742"
+        ],
+        "new_item_ids": [
+          "1646531091"
+        ],
+        "payment_method_id": "gift_card_7245904"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 2757705742 in order #W3470184 for 1646531091, settling the difference with gift_card_7245904.",
+      "keywords": []
+    }
+  ]
+}

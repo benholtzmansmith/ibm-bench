@@ -1,0 +1,100 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return the water bottle, and exchange the pet bed and office chair to the cheapest version. Mention the two things together and you want to get both done. If and only if you can only do one of the two things, you prefer to do whatever saves you most money. Ask the agent how much money you can save in both options.\n\tKnown info:\n\t\tYou are Mei Davis in zipcode 80217.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are in debt and sad today, but very brief.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_product_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Mei",
+        "last_name": "Davis",
+        "zip": "80217"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mei_davis_8935"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2890441"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W1267569"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "2747247837"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-2",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "4794339885"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W2890441",
+        "item_ids": [
+          "2366567022"
+        ],
+        "payment_method_id": "credit_card_1061405"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 2366567022 from order #W2890441 with the refund to credit_card_1061405. The agent told the user: 54.04, 41.64. Agent should tell the user that returning the water bottle gives a refund of $54.04. Agent should tell the user that exchanging the pet bed and office chair saves $41.64 total.",
+      "keywords": [
+        "54.04",
+        "41.64"
+      ]
+    }
+  ]
+}

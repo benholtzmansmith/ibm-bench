@@ -1,0 +1,26 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to know if the digital camera you just bought is 10x zoom. If not, modify the item to 10x zoom without changing the other options. If 10x zoom is not available, cancel the order with the reason of no longer needed. If it is available but the price is more than 3000, cancel the order with the reason of ordered by mistake.\n\tKnown info:\n\t\tYou name is Emma Kovacs and your email is emma.kovacs2974@example.com.\n\tTask instructions:\n\t\tYou are polite, curious, flexible, relaxing, yet impatient.",
+  "goals": {
+    "cancel_pending_order-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W9284598",
+        "reason": "ordered by mistake"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W9284598 because it was ordered by mistake.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just got into gaming and want to cancel or return everything not associated with it. (Everything except a keyboard and a mouse, but do not reveal it to the agent). PayPal is prefered for refund, but otherwise you are angry and ask for human agent for help.\n\tKnown info:\n\t\tYou are mia_garcia_4516 (mia.garcia2723@example.com).\n\tTask instructions:\n\t\tYou are into gaming but realized the importance of studying hard recently.",
+  "goals": {
+    "find_user_id_by_email-1": [
+      "transfer_to_human_agents-1"
+    ],
+    "get_user_details-1": [
+      "transfer_to_human_agents-1"
+    ],
+    "get_order_details-1": [
+      "transfer_to_human_agents-1"
+    ],
+    "get_order_details-2": [
+      "transfer_to_human_agents-1"
+    ],
+    "transfer_to_human_agents-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_email-1",
+      "tool_name": "find_user_id_by_email",
+      "args": {
+        "email": "mia.garcia2723@example.com"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mia_garcia_4516"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5490111"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7387996"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "transfer_to_human_agents-1",
+      "tool_name": "transfer_to_human_agents",
+      "args": {
+        "summary": "The user prefers PayPal for refund, but the agent cannot help."
+      },
+      "arg_matching": {
+        "summary": "ignore"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent transferred the user to a human agent.",
+      "keywords": []
+    }
+  ]
+}
