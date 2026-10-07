@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run a benchmark's evaluations against the active orchestrate environment.
-# Usage: scripts/run_evals.sh [smoke|full] [local|remote] [airline|retail]
+# Usage: scripts/run_evals.sh [smoke|full] [local|remote] [airline|retail|context_probe]
 #   smoke (default) runs 5 tasks, full runs every task (50 airline, 114 retail).
 #   local (default) targets the server from setup_local.sh; remote targets the
 #   instance from setup_remote.sh.
