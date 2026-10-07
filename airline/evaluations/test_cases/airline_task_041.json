@@ -1,0 +1,25 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Anya Garcia (with ID: anya_garcia_5901). Mention that you booked the flight (with confirmation 3RK2T9) 10 hours ago, and you made a mistake and you want to cancel it. Insist that you booked it 10 hours ago and you want a full refund.",
+  "goals": {
+    "get_reservation_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "3RK2T9"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy.",
+      "keywords": []
+    }
+  ]
+}

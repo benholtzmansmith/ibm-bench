@@ -1,0 +1,286 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is sophia_silva_7557. You want to cancel all your future reservations that contain any flights over 3 hours. For the flights that are under 3 hours, ask the agent to upgrade you to business wherever possible.",
+  "goals": {
+    "get_user_details-1": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-1": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-2": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-3": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-4": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-5": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-1": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-2": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-3": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-4": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-5": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-6": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-7": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-8": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-9": [
+      "cancel_reservation-1"
+    ],
+    "search_direct_flight-10": [
+      "cancel_reservation-1"
+    ],
+    "cancel_reservation-1": [
+      "update_reservation_flights-1"
+    ],
+    "update_reservation_flights-1": [
+      "update_reservation_flights-2"
+    ],
+    "update_reservation_flights-2": [
+      "update_reservation_flights-3"
+    ],
+    "update_reservation_flights-3": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "sophia_silva_7557"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "NM1VX1"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-2",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "KC18K6"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-3",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "S61CZX"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-4",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "H8Q05L"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-5",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "WUNA5K"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-1",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "MSP",
+        "destination": "EWR",
+        "date": "2024-05-25"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-2",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "EWR",
+        "destination": "MSP",
+        "date": "2024-05-27"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-3",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "MSP",
+        "destination": "EWR",
+        "date": "2024-05-21"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-4",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "EWR",
+        "destination": "CLT",
+        "date": "2024-05-21"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-5",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "LAX",
+        "destination": "EWR",
+        "date": "2024-05-23"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-6",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "EWR",
+        "destination": "CLT",
+        "date": "2024-05-24"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-7",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "CLT",
+        "destination": "EWR",
+        "date": "2024-05-24"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-8",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "EWR",
+        "destination": "LAX",
+        "date": "2024-05-25"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-9",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "JFK",
+        "destination": "ATL",
+        "date": "2024-05-24"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-10",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "ORD",
+        "destination": "PHL",
+        "date": "2024-05-10"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "S61CZX"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "NM1VX1",
+        "cabin": "business",
+        "flights": [
+          {
+            "flight_number": "HAT300",
+            "date": "2024-05-25"
+          },
+          {
+            "flight_number": "HAT208",
+            "date": "2024-05-27"
+          }
+        ],
+        "payment_id": "credit_card_4196779"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-2",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "H8Q05L",
+        "cabin": "business",
+        "flights": [
+          {
+            "flight_number": "HAT268",
+            "date": "2024-05-24"
+          }
+        ],
+        "payment_id": "credit_card_4196779"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-3",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "KC18K6",
+        "cabin": "business",
+        "flights": [
+          {
+            "flight_number": "HAT300",
+            "date": "2024-05-21"
+          },
+          {
+            "flight_number": "HAT215",
+            "date": "2024-05-21"
+          }
+        ],
+        "payment_id": "credit_card_4196779"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled reservation S61CZX; updated reservation NM1VX1 to business with flights HAT300 on 2024-05-25, HAT208 on 2024-05-27; updated reservation H8Q05L to business with flights HAT268 on 2024-05-24; updated reservation KC18K6 to business with flights HAT300 on 2024-05-21, HAT215 on 2024-05-21.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is raj_brown_5782 and you want to change your upcoming roundtrip flights which are currently DTW to LGA and back (reservation ID is VA5SGQ). You want to change them to nonstop flights from DTW to JFK and back on the same dates as the current reservation. Since you took insurance for this trip, you want change fees waived. You also want to add 1 checked bag. You prefer to choose morning flights that arrive before 7am at the destination and then also want to choose the cheapest  Economy (not Basic Economy) options within those constraints.",
+  "goals": {
+    "get_reservation_details-1": [
+      "update_reservation_flights-1"
+    ],
+    "update_reservation_flights-1": [
+      "update_reservation_baggages-1"
+    ],
+    "update_reservation_baggages-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "VA5SGQ"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "VA5SGQ",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT169",
+            "date": "2024-05-17"
+          },
+          {
+            "flight_number": "HAT033",
+            "date": "2024-05-19"
+          }
+        ],
+        "payment_id": "credit_card_8003957"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_baggages-1",
+      "tool_name": "update_reservation_baggages",
+      "args": {
+        "reservation_id": "VA5SGQ",
+        "total_baggages": 1,
+        "nonfree_baggages": 1,
+        "payment_id": "credit_card_8003957"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated reservation VA5SGQ to economy with flights HAT169 on 2024-05-17, HAT033 on 2024-05-19; updated reservation VA5SGQ to 1 bags (1 paid).",
+      "keywords": []
+    }
+  ]
+}

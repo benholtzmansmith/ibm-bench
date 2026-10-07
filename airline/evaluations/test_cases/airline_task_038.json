@@ -1,0 +1,28 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Sophia Silva (with ID: sophia_silva_7557), you want to get a refund for the insurance you purchased for your flight (confirmation: H8Q05L) but you don't want to cancel the flight itself. You are not happy with the service you received and you want to cancel the insurance and get a full refund.",
+  "goals": {
+    "transfer_to_human_agents-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "transfer_to_human_agents-1",
+      "tool_name": "transfer_to_human_agents",
+      "args": {
+        "summary": "The user wants to cancel and get a refund for the travel insurance purchased separately from the flight reservation due to a poor experience with the service. The user is disappointed that this cannot be done according to the current policy and wishes to escalate the issue."
+      },
+      "arg_matching": {
+        "summary": "fuzzy"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent transferred the user to a human agent.",
+      "keywords": []
+    }
+  ]
+}

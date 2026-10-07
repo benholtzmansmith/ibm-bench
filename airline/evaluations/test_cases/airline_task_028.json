@@ -1,0 +1,135 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is amelia_davis_8890. You want to cancel all of your upcoming flights. Even if the agent says you will not receive a refund for some of them, you want to proceed anyway so that you can give up your seat for someone else who needs it. You are French by birth and use French words in your conversation.",
+  "goals": {
+    "get_user_details-1": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-1": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-2": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-3": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-4": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-5": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-6": [
+      "cancel_reservation-1"
+    ],
+    "get_reservation_details-7": [
+      "cancel_reservation-1"
+    ],
+    "cancel_reservation-1": [
+      "cancel_reservation-2"
+    ],
+    "cancel_reservation-2": [
+      "cancel_reservation-3"
+    ],
+    "cancel_reservation-3": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "amelia_davis_8890"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "8C8K4E"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-2",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "UDMOP1"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-3",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "XAZ3C0"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-4",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "LU15PA"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-5",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "MSJ4OA"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-6",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "I6M8JQ"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-7",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "4XGCCM"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-1",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "8C8K4E"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-2",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "LU15PA"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_reservation-3",
+      "tool_name": "cancel_reservation",
+      "args": {
+        "reservation_id": "MSJ4OA"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled reservation 8C8K4E; cancelled reservation LU15PA; cancelled reservation MSJ4OA.",
+      "keywords": []
+    }
+  ]
+}

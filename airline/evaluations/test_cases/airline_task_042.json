@@ -1,0 +1,25 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Anya Garcia (with ID: anya_garcia_5901). Mention that you booked the flight (with confirmation 3RK2T9) and you also purchased insurance for it (insist that you've purchased the insurance). You cannot make the flight because you're sick and you want to cancel the flight and get a refund for the flight",
+  "goals": {
+    "get_reservation_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "3RK2T9"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy.",
+      "keywords": []
+    }
+  ]
+}

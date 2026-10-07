@@ -1,0 +1,91 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is sophia_silva_7557. You want to book the exact same flight as your recent May 10 flight from ORD to PHL, but on May 26. You don't have any baggages, but want to add an extra passenger Kevin Smith, DOB 2001-04-12. You are ok with economy and want aisle and a middle seat together. You are willing to pay up to $500 for the purchase. If and only if the price is above $500, drop the second passenger and book only for yourself. If the agent asks, you only want a one-way ticket, not roundtrip. You don't need any travel insurance.",
+  "goals": {
+    "get_user_details-1": [
+      "book_reservation-1"
+    ],
+    "get_reservation_details-1": [
+      "book_reservation-1"
+    ],
+    "search_direct_flight-1": [
+      "book_reservation-1"
+    ],
+    "book_reservation-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "sophia_silva_7557"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "WUNA5K"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-1",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "ORD",
+        "destination": "PHL",
+        "date": "2024-05-26"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "book_reservation-1",
+      "tool_name": "book_reservation",
+      "args": {
+        "user_id": "sophia_silva_7557",
+        "origin": "ORD",
+        "destination": "PHL",
+        "flight_type": "one_way",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT271",
+            "date": "2024-05-26"
+          }
+        ],
+        "passengers": [
+          {
+            "first_name": "Sophia",
+            "last_name": "Silva",
+            "dob": "1957-10-05"
+          },
+          {
+            "first_name": "Kevin",
+            "last_name": "Smith",
+            "dob": "2001-04-12"
+          }
+        ],
+        "payment_methods": [
+          {
+            "payment_id": "certificate_8045380",
+            "amount": 348
+          }
+        ],
+        "total_baggages": 0,
+        "nonfree_baggages": 0,
+        "insurance": "no"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent booked a one way economy reservation from ORD to PHL (HAT271 on 2024-05-26).",
+      "keywords": []
+    }
+  ]
+}

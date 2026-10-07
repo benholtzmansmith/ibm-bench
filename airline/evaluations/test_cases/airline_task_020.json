@@ -1,0 +1,61 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is james_taylor_7043. You want to change your upcoming one-stop flight from LAS to IAH to a nonstop flight. Your reservation ID is 1N99U6. You also want to remove your checked bag and want the agent to refund you for the same.",
+  "goals": {
+    "get_reservation_details-1": [
+      "update_reservation_flights-1"
+    ],
+    "search_direct_flight-1": [
+      "update_reservation_flights-1"
+    ],
+    "update_reservation_flights-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "1N99U6"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-1",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "LAS",
+        "destination": "IAH",
+        "date": "2024-05-19"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_flights-1",
+      "tool_name": "update_reservation_flights",
+      "args": {
+        "reservation_id": "1N99U6",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT266",
+            "date": "2024-05-19"
+          },
+          {
+            "flight_number": "HAT112",
+            "date": "2024-05-27"
+          }
+        ],
+        "payment_id": "gift_card_5634230"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated reservation 1N99U6 to economy with flights HAT266 on 2024-05-19, HAT112 on 2024-05-27.",
+      "keywords": []
+    }
+  ]
+}

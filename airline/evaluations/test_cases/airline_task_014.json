@@ -1,0 +1,79 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is chen_lee_6825. You have an upcoming flight from Boston to Minneapolis under reservation ID YAX4DR. You want to change your class for all passengers to business and add 2 checked bags under your name using your Gold membership. You are willing to pay a fee for the business class changes, upto $600. If the costs are greater than that for the upgrade, then try to upgrade your companion Noah to business under the constraints.",
+  "goals": {
+    "get_reservation_details-1": [
+      "update_reservation_baggages-1"
+    ],
+    "search_direct_flight-1": [
+      "update_reservation_baggages-1"
+    ],
+    "search_direct_flight-2": [
+      "update_reservation_baggages-1"
+    ],
+    "calculate-1": [
+      "update_reservation_baggages-1"
+    ],
+    "update_reservation_baggages-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "YAX4DR"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-1",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "BOS",
+        "destination": "MCO",
+        "date": "2024-05-18"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "search_direct_flight-2",
+      "tool_name": "search_direct_flight",
+      "args": {
+        "origin": "MCO",
+        "destination": "MSP",
+        "date": "2024-05-19"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "2 * ((350 - 122) + (499 - 127))"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_baggages-1",
+      "tool_name": "update_reservation_baggages",
+      "args": {
+        "reservation_id": "YAX4DR",
+        "total_baggages": 2,
+        "nonfree_baggages": 0,
+        "payment_id": "credit_card_4938634"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated reservation YAX4DR to 2 bags (0 paid).",
+      "keywords": []
+    }
+  ]
+}

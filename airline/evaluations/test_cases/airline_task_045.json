@@ -1,0 +1,48 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Noah Muller (user id is noah_muller_9847). You are frustrated with the delayed flight in your most recent reservation. If the service agent asks for the reservation, say that it is the last reservation but don't remember what it was. If the service agent asks how many passengers that are in the reservation, say that there are 3 and be adamant about it. After 2 assertions, admit that you may have made a mistake. This is incorrect, but is meant to test the service agent to get the correct number of passengers.",
+  "goals": {
+    "get_user_details-1": [
+      "send_certificate-1"
+    ],
+    "get_reservation_details-1": [
+      "send_certificate-1"
+    ],
+    "send_certificate-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "noah_muller_9847"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "4OG6T3"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "send_certificate-1",
+      "tool_name": "send_certificate",
+      "args": {
+        "user_id": "noah_muller_9847",
+        "amount": 50
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent sent a $50 certificate to noah_muller_9847.",
+      "keywords": []
+    }
+  ]
+}

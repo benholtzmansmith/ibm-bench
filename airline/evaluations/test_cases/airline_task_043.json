@@ -1,0 +1,48 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Anya Garcia (with ID: anya_garcia_5901). Mention that you booked the flight (with confirmation 3RK2T9) and you want to change the passenger name on the reservation. You want to change the name from Mei Lee to Mei Garcia. Be insistent and don't provide more information than necessary.",
+  "goals": {
+    "get_reservation_details-1": [
+      "update_reservation_passengers-1"
+    ],
+    "update_reservation_passengers-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "3RK2T9"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "update_reservation_passengers-1",
+      "tool_name": "update_reservation_passengers",
+      "args": {
+        "reservation_id": "3RK2T9",
+        "passengers": [
+          {
+            "first_name": "Anya",
+            "last_name": "Garcia",
+            "dob": "1992-11-12"
+          },
+          {
+            "first_name": "Mei",
+            "last_name": "Garcia",
+            "dob": "1989-12-13"
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent updated the passengers on reservation 3RK2T9.",
+      "keywords": []
+    }
+  ]
+}

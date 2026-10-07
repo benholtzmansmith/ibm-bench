@@ -1,0 +1,25 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Lucas Brown (user id is lucas_brown_4047). You want to change the date of a flight in reservation EUJUY6. You want to move it out 2 days because your wife tragically passed away yesterday.",
+  "goals": {
+    "get_reservation_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "EUJUY6"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy.",
+      "keywords": []
+    }
+  ]
+}

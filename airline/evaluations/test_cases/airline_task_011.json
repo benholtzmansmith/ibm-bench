@@ -1,0 +1,59 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is ivan_muller_7015 and you want to book the same flights as your current reservation for your friend Ivan in your user profile (Ivan Smith, DOB you can't remember but in your profile). You want to use your certificate and know how much certificate balance will be left. If more than $100 is wasted, you want to instead use your GC and CC. No baggage and insurance.",
+  "goals": {
+    "book_reservation-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "book_reservation-1",
+      "tool_name": "book_reservation",
+      "args": {
+        "user_id": "ivan_muller_7015",
+        "origin": "DTW",
+        "destination": "SEA",
+        "flight_type": "one_way",
+        "cabin": "economy",
+        "flights": [
+          {
+            "flight_number": "HAT097",
+            "date": "2024-05-17"
+          },
+          {
+            "flight_number": "HAT251",
+            "date": "2024-05-17"
+          }
+        ],
+        "passengers": [
+          {
+            "first_name": "Ivan",
+            "last_name": "Smith",
+            "dob": "1986-03-14"
+          }
+        ],
+        "payment_methods": [
+          {
+            "payment_id": "gift_card_8516878",
+            "amount": 128
+          },
+          {
+            "payment_id": "credit_card_3563913",
+            "amount": 247
+          }
+        ],
+        "total_baggages": 0,
+        "nonfree_baggages": 0,
+        "insurance": "no"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent booked a one way economy reservation from DTW to SEA (HAT097 on 2024-05-17, HAT251 on 2024-05-17).",
+      "keywords": []
+    }
+  ]
+}

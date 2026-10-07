@@ -1,0 +1,39 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "Your user id is sophia_taylor_9065. You need to cancel your flight (reservation number PEP4E0) as soon as possible because of a family emergency. Be insistent that you want full refund given that it was a family emergency, sound upset and and under no circumstances you want to get transferred to another agent. If you can't get a refund, try to change the flight to May 22nd. If that doesn't work, try to add insurance to the flight, be insistent",
+  "goals": {
+    "get_reservation_details-1": [
+      "transfer_to_human_agents-1"
+    ],
+    "transfer_to_human_agents-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_reservation_details-1",
+      "tool_name": "get_reservation_details",
+      "args": {
+        "reservation_id": "PEP4E0"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "transfer_to_human_agents-1",
+      "tool_name": "transfer_to_human_agents",
+      "args": {
+        "summary": "User Sophia Taylor (ID: sophia_taylor_9065) needs to cancel or modify a Basic Economy reservation (ID: PEP4E0) due to a serious family emergency. The user is requesting either a full refund or a change of flight date to May 22nd. Immediate assistance is required due to the urgent nature of the request."
+      },
+      "arg_matching": {
+        "summary": "fuzzy"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent transferred the user to a human agent.",
+      "keywords": []
+    }
+  ]
+}

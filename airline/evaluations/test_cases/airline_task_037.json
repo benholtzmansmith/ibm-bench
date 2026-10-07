@@ -1,0 +1,25 @@
+{
+  "agent": "tau_airline_agent",
+  "story": "You are Mei Brown (with ID: mei_brown_7075), and you are contacting to complain about your delayed flight HAT045 from PHX to SEA. Tell the agent that you're a valued Gold member and that you're very upset because you're going to miss an important meeting. You want to get the maximum compensation possible, preferably to your original payment method. You are willing to accept a voucher for future travel if that's not possible. Don't accept the first offer, be insistent.",
+  "goals": {
+    "get_user_details-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mei_brown_7075"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any reservation, because the request is not allowed under the airline policy.",
+      "keywords": []
+    }
+  ]
+}
