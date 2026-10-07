@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou ordered a perfume and you just tried a little bit and you like it a lot. You want to get the maximum size available for it.\n\tKnown info:\n\t\tYou name is Ivan Johnson and your zip code is 94183.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tIf the agent cannot help with placing a new order, ask to exchange your current bottle for the largest size available.",
+  "goals": {
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W1671835",
+        "item_ids": [
+          "5081446110"
+        ],
+        "new_item_ids": [
+          "3399869890"
+        ],
+        "payment_method_id": "paypal_6918118"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 5081446110 in order #W1671835 for 3399869890, settling the difference with paypal_6918118.",
+      "keywords": []
+    }
+  ]
+}

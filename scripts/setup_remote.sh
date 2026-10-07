@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # Use a watsonx Orchestrate SaaS instance (for example a 30-day trial) instead of
 # a local server: register it as an orchestrate environment, activate it, and
-# import the virtual model, tools and agent into it.
+# import the virtual model, tools and agents into it.
+#
+# Usage: scripts/setup_remote.sh [airline|retail]   (default: airline)
+#   The two benchmarks share tool names (calculate, get_user_details,
+#   transfer_to_human_agents) with different behavior, so an environment holds
+#   one benchmark at a time. Re-run with the other name to switch.
 #
 # Reads .env in the repo root, which must set:
 #   WO_INSTANCE        service instance URL (Settings > API details)
@@ -37,4 +42,4 @@ fi
 orchestrate env add "${ADD_ARGS[@]}" || true
 orchestrate env activate "$NAME" --api-key "$WO_API_KEY"
 
-scripts/import_airline.sh
+scripts/import_"${1:-airline}".sh

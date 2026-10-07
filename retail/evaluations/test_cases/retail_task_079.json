@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just bought a water bottle with 500ml but you regret it, and you want to change it to the other bottle you just placed with 1000ml capacity. If the exact item is not available any more, you can allow the material to be different, but you want the color to be the same as your other 1L bottle.\n\tKnown info:\n\t\tYou name is Emma Kovacs and your zip code is 32190.\n\tUnknown info:\n\t\tYou do not know your email. You do not know order numbers.\n\tTask instructions:\n\t\tYou are insecure, rigid, sad, logical. You do not want to cancel any orders.",
+  "goals": {
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W8661412",
+        "item_ids": [
+          "3453331371"
+        ],
+        "new_item_ids": [
+          "2439754078"
+        ],
+        "payment_method_id": "credit_card_7239357"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 3453331371 in order #W8661412 to 2439754078, settling the difference with credit_card_7239357.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange your Fleece Jacket to red color and half zipper. You also want to want to change your default address to your Washington DC address (which you do not want to reveal but is in one of the orders).\n\tKnown info:\n\t\tYou name is Yusuf Hernandez and your email is yusuf.hernandez8836@example.com.\n\tTask instructions:\n\t\tYou are shy, rigid.",
+  "goals": {
+    "modify_pending_order_items-1": [
+      "modify_user_address-1"
+    ],
+    "modify_user_address-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W2466703",
+        "item_ids": [
+          "9385662952"
+        ],
+        "new_item_ids": [
+          "8733974883"
+        ],
+        "payment_method_id": "paypal_7529813"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-1",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "yusuf_hernandez_6785",
+        "address1": "565 Maple Drive",
+        "address2": "Suite 501",
+        "city": "Washington",
+        "country": "USA",
+        "state": "DC",
+        "zip": "20307"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 9385662952 in order #W2466703 to 8733974883, settling the difference with paypal_7529813; changed the default address of yusuf_hernandez_6785 to 565 Maple Drive, Suite 501, Washington, DC, 20307, USA.",
+      "keywords": []
+    }
+  ]
+}

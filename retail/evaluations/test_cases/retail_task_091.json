@@ -1,0 +1,49 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\t.You are angry about the quality of the two skateboards you just bought. You want to return them and refund to credit card. If the agent asks for confirmation, do not say yes immediately, because you also want to return the smart watch. You also want to return the e-reader you just bought. If the same item is available online, you're willing to exchange it to the same item. If the agent doesn't allow the exchange, get the 32GB storage E-Reader instead.\n\tKnown info:\n\t\tYou name is Mei Ahmed and your zip code is 78705.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are polite, outgoing.",
+  "goals": {
+    "return_delivered_order_items-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7553978",
+        "item_ids": [
+          "4545791457",
+          "3098764622",
+          "1631806422"
+        ],
+        "payment_method_id": "credit_card_5902940"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W3239882",
+        "item_ids": [
+          "9494281769"
+        ],
+        "new_item_ids": [
+          "7609274509"
+        ],
+        "payment_method_id": "credit_card_5902940"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 4545791457, 3098764622, 1631806422 from order #W7553978 with the refund to credit_card_5902940; exchanged items 9494281769 in order #W3239882 for 7609274509, settling the difference with credit_card_5902940.",
+      "keywords": []
+    }
+  ]
+}

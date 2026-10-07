@@ -1,0 +1,22 @@
+# ADK evaluation config (smoke run). Run from the repo root with scripts/run_evals.sh.
+# There is no auth_config, so the evaluation targets the active orchestrate
+# environment: the local server or a remote instance.
+test_paths:
+  - retail/evaluations/test_cases/retail_task_000.json
+  - retail/evaluations/test_cases/retail_task_013.json
+  - retail/evaluations/test_cases/retail_task_017.json
+  - retail/evaluations/test_cases/retail_task_038.json
+  - retail/evaluations/test_cases/retail_task_040.json
+output_dir: results/retail-smoke
+# The simulated user and the judge both call the virtual model through the
+# local Orchestrate AI gateway, so no separate provider key is needed.
+llm_user_config:
+  provider_config:
+    provider: gateway
+    model_id: virtual-model/anthropic/claude-sonnet-5-5
+evaluation_config:
+  provider_config:
+    provider: gateway
+    model_id: virtual-model/anthropic/claude-sonnet-5-5
+max_user_turns: 30
+num_workers: 2

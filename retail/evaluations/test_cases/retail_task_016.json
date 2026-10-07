@@ -1,0 +1,126 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to cancel all pending orders (since they are no longer needed) and return the watch you have received (but nothing else), and you want to know the total amount you can get back.\n\tKnown info:\n\t\tYou are Fatima Johnson in zipcode 78712.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a private person that does not want to reveal much about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_user_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-2": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-3": [
+      "cancel_pending_order-1"
+    ],
+    "calculate-1": [
+      "cancel_pending_order-1"
+    ],
+    "cancel_pending_order-1": [
+      "cancel_pending_order-2"
+    ],
+    "cancel_pending_order-2": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Fatima",
+        "last_name": "Johnson",
+        "zip": "78712"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "fatima_johnson_7581"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5199551"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W8665881"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9389413"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "3131.1 + 4777.75 + 367.38"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W5199551",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-2",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W8665881",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W9389413",
+        "item_ids": [
+          "2554056026"
+        ],
+        "payment_method_id": "paypal_5364164"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W5199551 because it was no longer needed; cancelled order #W8665881 because it was no longer needed; returned items 2554056026 from order #W9389413 with the refund to paypal_5364164. The agent told the user: 8276.23. Agent should tell the user the total refund amount is $8,276.23.",
+      "keywords": [
+        "8276.23"
+      ]
+    }
+  ]
+}

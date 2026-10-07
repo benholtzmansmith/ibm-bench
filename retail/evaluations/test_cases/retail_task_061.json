@@ -1,0 +1,81 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to change your wireless earbuds in order W5061109 to a blue colored one. Provide all details upfront and ask the agent to resolve as soon as possible. You want the price to be the same or lower.\n\tKnown info:\n\t\tYou are Chen Johnson from Houston TX, 77004.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\t.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "calculate-1": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Chen",
+        "last_name": "Johnson",
+        "zip": "77004"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5061109"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "9924732112"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "256.67 - 226.49"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W5061109",
+        "item_ids": [
+          "3694871183"
+        ],
+        "new_item_ids": [
+          "8555936349"
+        ],
+        "payment_method_id": "paypal_3742148"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 3694871183 in order #W5061109 to 8555936349, settling the difference with paypal_3742148.",
+      "keywords": []
+    }
+  ]
+}

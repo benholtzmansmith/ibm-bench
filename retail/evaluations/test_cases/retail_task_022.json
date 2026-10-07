@@ -1,0 +1,111 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to change your user address and all possible order addresses to be 101 Highway, New York, 10001 (including the orders). Once the agent has confirmed the changes for the default address AND the order addresses, then you regret it and want to change the user address back to the original address.\n\tKnown info:\n\t\tYou are Ethan Garcia, and you live in Denver, 80280.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a mysterious person and do not want to reveal much about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_user_address-1"
+    ],
+    "modify_user_address-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_address-1"
+    ],
+    "modify_pending_order_address-1": [
+      "modify_user_address-2"
+    ],
+    "modify_user_address-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Ethan",
+        "last_name": "Garcia",
+        "zip": "80280"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-1",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "ethan_garcia_1261",
+        "address1": "101 Highway",
+        "address2": "",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zip": "10001"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4967593"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9911714"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5733668"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W9911714",
+        "address1": "101 Highway",
+        "address2": "",
+        "city": "New York",
+        "state": "NY",
+        "country": "USA",
+        "zip": "10001"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-2",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "ethan_garcia_1261",
+        "address1": "667 Highland Drive",
+        "address2": "Suite 865",
+        "city": "Denver",
+        "state": "CO",
+        "country": "USA",
+        "zip": "80280"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the default address of ethan_garcia_1261 to 101 Highway, New York, NY, 10001, USA; changed the shipping address of order #W9911714 to 101 Highway, New York, NY, 10001, USA; changed the default address of ethan_garcia_1261 to 667 Highland Drive, Suite 865, Denver, CO, 80280, USA.",
+      "keywords": []
+    }
+  ]
+}

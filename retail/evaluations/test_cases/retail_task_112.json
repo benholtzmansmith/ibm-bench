@@ -1,0 +1,67 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to modify your laptop order to your NYC address (you don't want to reveal it yourself but the address should be in your orders profile). You also want to modify the laptop to item number 9844888101. You also want to change your watch for one with black dial color but keeping the leather strap.\n\tKnown info:\n\t\tYou name is Yara Silva and your zip code is 77159.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are sad and cautious. You like to say things piecewise.",
+  "goals": {
+    "modify_pending_order_items-1": [
+      "modify_pending_order_address-1"
+    ],
+    "modify_pending_order_address-1": [
+      "modify_pending_order_items-2"
+    ],
+    "modify_pending_order_items-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W9810810",
+        "item_ids": [
+          "1355937109"
+        ],
+        "new_item_ids": [
+          "9949163720"
+        ],
+        "payment_method_id": "gift_card_7252880"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W3730488",
+        "address1": "555 Highland Drive",
+        "address2": "Suite 872",
+        "city": "New York",
+        "country": "USA",
+        "state": "NY",
+        "zip": "10116"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-2",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W3730488",
+        "item_ids": [
+          "2913673670"
+        ],
+        "new_item_ids": [
+          "9844888101"
+        ],
+        "payment_method_id": "gift_card_7252880"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 1355937109 in order #W9810810 to 9949163720, settling the difference with gift_card_7252880; changed the shipping address of order #W3730488 to 555 Highland Drive, Suite 872, New York, NY, 10116, USA; changed items 2913673670 in order #W3730488 to 9844888101, settling the difference with gift_card_7252880.",
+      "keywords": []
+    }
+  ]
+}

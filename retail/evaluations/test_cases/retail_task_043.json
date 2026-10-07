@@ -1,0 +1,85 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou ordered some things for your daughter but she has not received them, so you want to know which address the order was sent to, the tracking number, and if the order is still in transit. You also want to check if the storage of the tablet you ordered. Lastly, you want to change your default address to your daughter's address so that you don't have to change it every time you order something for her.\n\tKnown info:\n\t\tYou are Lucas (lucas_santos_6600), you live in Denver CO 80239, and your daughter lives in Chicago.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a lonely man and you want to talk to the agent for a while.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_user_address-1"
+    ],
+    "get_user_details-1": [
+      "modify_user_address-1"
+    ],
+    "get_order_details-1": [
+      "modify_user_address-1"
+    ],
+    "get_order_details-2": [
+      "modify_user_address-1"
+    ],
+    "modify_user_address-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Lucas",
+        "last_name": "Santos",
+        "zip": "80239"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "lucas_santos_6600"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W1588712"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7895761"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-1",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "lucas_santos_6600",
+        "address1": "943 Maple Drive",
+        "address2": "Suite 356",
+        "city": "Chicago",
+        "state": "IL",
+        "country": "USA",
+        "zip": "60621"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the default address of lucas_santos_6600 to 943 Maple Drive, Suite 356, Chicago, IL, 60621, USA. The agent told the user: 840887978435, 943 Maple Drive, Suite 356, Chicago, IL, 60621, 64GB. Agent should tell the user the tracking number is 840887978435. Agent should tell the user the order was shipped to 943 Maple Drive, Suite 356, Chicago, IL 60621. Agent should tell the user the tablet storage is 64GB.",
+      "keywords": [
+        "840887978435",
+        "943 Maple Drive",
+        "Suite 356",
+        "Chicago",
+        "IL",
+        "60621",
+        "64GB"
+      ]
+    }
+  ]
+}

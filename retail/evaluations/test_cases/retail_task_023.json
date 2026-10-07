@@ -1,0 +1,169 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange the helmet for a medium sized, red, high ventilation type, and you want to exchange the luggage set (in another order) to a two-piece black one with soft material. Lastly, you want to modify the grill you just ordered to the same type as the one you already received.\n\tKnown info:\n\t\tYou are Sofia Hernandez, and you live in Seattle, WA, 98193.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\t.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-3": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_order_details-4": [
+      "exchange_delivered_order_items-1"
+    ],
+    "get_product_details-1": [
+      "exchange_delivered_order_items-1"
+    ],
+    "exchange_delivered_order_items-1": [
+      "exchange_delivered_order_items-2"
+    ],
+    "get_product_details-2": [
+      "exchange_delivered_order_items-2"
+    ],
+    "exchange_delivered_order_items-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Sofia",
+        "last_name": "Hernandez",
+        "zip": "98193"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "sofia_hernandez_5364"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3561391"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6876713"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9609649"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3947049"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "7765186836"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W3947049",
+        "item_ids": [
+          "3358616356"
+        ],
+        "new_item_ids": [
+          "8573379326"
+        ],
+        "payment_method_id": "credit_card_7901829"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-2",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "5426915165"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-2",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W6876713",
+        "item_ids": [
+          "6301799585"
+        ],
+        "new_item_ids": [
+          "8926329222"
+        ],
+        "payment_method_id": "credit_card_7901829"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-3",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "6819683148"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W3561391",
+        "item_ids": [
+          "5946177616"
+        ],
+        "new_item_ids": [
+          "7082455361"
+        ],
+        "payment_method_id": "credit_card_7901829"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 3358616356 in order #W3947049 for 8573379326, settling the difference with credit_card_7901829; exchanged items 6301799585 in order #W6876713 for 8926329222, settling the difference with credit_card_7901829; changed items 5946177616 in order #W3561391 to 7082455361, settling the difference with credit_card_7901829.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange your Fleece Jacket for a large red Fleece Jacket with a half zipper\n\tKnown info:\n\t\tYou name is Yusuf Hernandez and your email is yusuf.hernandez8836@example.com.\n\tTask instructions:\n\t\tYou are shy, rigid.",
+  "goals": {
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W2466703",
+        "item_ids": [
+          "9385662952"
+        ],
+        "new_item_ids": [
+          "8733974883"
+        ],
+        "payment_method_id": "paypal_7529813"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 9385662952 in order #W2466703 to 8733974883, settling the difference with paypal_7529813.",
+      "keywords": []
+    }
+  ]
+}

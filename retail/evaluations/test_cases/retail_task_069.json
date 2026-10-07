@@ -1,0 +1,61 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return an item you just received: a laptop. You think that you ordered it around April 2023 but are not sure. You want to return it because you found a better deal elsewhere. You want to return it for a full refund. If it cannot be returned, see if it can be canceled.\n\tKnown info:\n\t\tYou are emma_smith_8564 living in New York, New York, 10192.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are polite and friendly.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_user_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "get_order_details-1": [
+      "cancel_pending_order-1"
+    ],
+    "cancel_pending_order-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Emma",
+        "last_name": "Smith",
+        "zip": "10192"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "emma_smith_8564"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2417020"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W2417020",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W2417020 because it was no longer needed.",
+      "keywords": []
+    }
+  ]
+}

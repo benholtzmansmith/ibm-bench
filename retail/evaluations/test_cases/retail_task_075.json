@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tFor #W6908222, you want to exchange Wireless Earbuds {'color': 'blue', 'battery life': '8 hours', 'water resistance': 'IPX4'} to one with the following attributes: {'color': 'black', 'battery life': '4 hours', 'water resistance': 'not resistant'}\n\tKnown info:\n\t\tYou name is Liam Moore and your email is liam.moore6985@example.com.\n\tTask instructions:\n\t\tYou are direct, patient, organized, optimistic.",
+  "goals": {
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W6908222",
+        "item_ids": [
+          "8555936349"
+        ],
+        "new_item_ids": [
+          "4063058357"
+        ],
+        "payment_method_id": "paypal_4518393"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 8555936349 in order #W6908222 for 4063058357, settling the difference with paypal_4518393.",
+      "keywords": []
+    }
+  ]
+}

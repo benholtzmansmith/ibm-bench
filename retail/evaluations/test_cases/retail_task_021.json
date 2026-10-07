@@ -1,0 +1,162 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to exchange your shoes to item ID 4107812777, and use your gift card to cover possible charges. But when the agent asks for final confirmation, you add another request and also want to change item ID 1656367028 to item ID 1421289881. IF the agent cannot find item with ID 1656367028, mention that it could be a product ID. You are not familiar with the domain and might confuse product and item ids, so ask the agent to figure out the details on its own if needed. You want to know your gift card balance after all these changes are complete.\n\tKnown info:\n\t\tYou are Ethan Garcia, and you live in Denver, 80280.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a mysterious person and do not want to reveal much about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "get_item_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_item_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_item_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "calculate-1": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Ethan",
+        "last_name": "Garcia",
+        "zip": "80280"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "ethan_garcia_1261"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4967593"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9911714"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5733668"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_item_details-1",
+      "tool_name": "get_item_details",
+      "args": {
+        "item_id": "4107812777"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_item_details-2",
+      "tool_name": "get_item_details",
+      "args": {
+        "item_id": "1421289881"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "1656367028"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_item_details-3",
+      "tool_name": "get_item_details",
+      "args": {
+        "item_id": "4107812777"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-2",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "6938111410"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "155.33 - 147.05 + 268.77 - 235.13"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W9911714",
+        "item_ids": [
+          "9791469541",
+          "1340995114"
+        ],
+        "new_item_ids": [
+          "4107812777",
+          "1421289881"
+        ],
+        "payment_method_id": "gift_card_4332117"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 9791469541, 1340995114 in order #W9911714 to 4107812777, 1421289881, settling the difference with gift_card_4332117. The agent told the user: 44.08. Agent should tell the user their gift card balance is $44.08.",
+      "keywords": [
+        "44.08"
+      ]
+    }
+  ]
+}

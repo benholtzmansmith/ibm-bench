@@ -1,0 +1,139 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just won a lottery, and you want to upgrade all your items to the most expensive variants (the new variants can have different features from the originals, but make sure the new shoe is still the same size). You only care about the size; the other specs are not important for the shoe or any other item. If for a given order the agent tells you that the upgrade is not possible, tell it to proceed with the next order and forget about this one. You want to pay the difference with your Giftcard. If the agent says giftcard is not possible, using PayPal is fine.\n\tKnown info:\n\t\tYou are Ethan Garcia, and you live in Denver, 80280.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a mysterious person and do not want to reveal much about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-4": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ],
+    "get_order_details-3": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Ethan",
+        "last_name": "Garcia",
+        "zip": "80280"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "ethan_garcia_1261"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4967593"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9911714"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "8310926033"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-2",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "1656367028"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-3",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "6938111410"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-4",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "5149340237"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W9911714",
+        "item_ids": [
+          "2366567022",
+          "1340995114",
+          "9791469541",
+          "1763705424"
+        ],
+        "new_item_ids": [
+          "4579334072",
+          "1151293680",
+          "4107812777",
+          "2882812427"
+        ],
+        "payment_method_id": "gift_card_4332117"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5733668"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 2366567022, 1340995114, 9791469541, 1763705424 in order #W9911714 to 4579334072, 1151293680, 4107812777, 2882812427, settling the difference with gift_card_4332117.",
+      "keywords": []
+    }
+  ]
+}

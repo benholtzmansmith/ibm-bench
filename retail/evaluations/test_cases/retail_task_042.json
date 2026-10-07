@@ -1,0 +1,151 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just created your user id mei_patel_7272 and ordered some things, but realized you might have typed your address wrong. You want to check it, and potentially correct all order addresses and your user address. After this, you'd like to check the jigsaw you ordered, and if it's not shipped yet, you want to change it to the easiest jigsaw (easiest level, least pieces) because your kid is too young. By default you use PayPal.\n\tKnown info:\n\t\tYour name is Mei Patel, and you live in 445 Maple Drive, Suite 394, Fort Worth, Texas, 76165.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are brief and your memory is not too good sometimes, but you are polite.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_address-1"
+    ],
+    "modify_pending_order_address-1": [
+      "modify_pending_order_address-2"
+    ],
+    "modify_pending_order_address-2": [
+      "modify_user_address-1"
+    ],
+    "modify_user_address-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Mei",
+        "last_name": "Patel",
+        "zip": "76165"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "mei_patel_7272"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9583042"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4082615"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W9583042",
+        "address1": "445 Maple Drive",
+        "address2": "Suite 394",
+        "city": "Fort Worth",
+        "state": "TX",
+        "country": "USA",
+        "zip": "76165"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-2",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W4082615",
+        "address1": "445 Maple Drive",
+        "address2": "Suite 394",
+        "city": "Fort Worth",
+        "state": "TX",
+        "country": "USA",
+        "zip": "76165"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-1",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "mei_patel_7272",
+        "address1": "445 Maple Drive",
+        "address2": "Suite 394",
+        "city": "Fort Worth",
+        "state": "TX",
+        "country": "USA",
+        "zip": "76165"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "1808611083"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4082615"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W4082615",
+        "item_ids": [
+          "9779102705"
+        ],
+        "new_item_ids": [
+          "1096508426"
+        ],
+        "payment_method_id": "paypal_4768213"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the shipping address of order #W9583042 to 445 Maple Drive, Suite 394, Fort Worth, TX, 76165, USA; changed the shipping address of order #W4082615 to 445 Maple Drive, Suite 394, Fort Worth, TX, 76165, USA; changed the default address of mei_patel_7272 to 445 Maple Drive, Suite 394, Fort Worth, TX, 76165, USA; changed items 9779102705 in order #W4082615 to 1096508426, settling the difference with paypal_4768213.",
+      "keywords": []
+    }
+  ]
+}

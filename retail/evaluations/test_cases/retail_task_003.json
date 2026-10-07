@@ -1,0 +1,157 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to know exactly how many tshirt options are available in the online store right now. You want to modify all your pending small tshirt to purple, same size, same v-neck, and prefer polyester.\n\tKnown info:\n\t\tYou are Yusuf Rossi in zipcode 19122.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are a private person that does not want to reveal much about yourself.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-4": [
+      "modify_pending_order_items-1"
+    ],
+    "get_order_details-5": [
+      "modify_pending_order_items-1"
+    ],
+    "get_product_details-3": [
+      "modify_pending_order_items-1"
+    ],
+    "get_user_details-2": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Yusuf",
+        "last_name": "Rossi",
+        "zip": "19122"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-1",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "6086499569"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-2",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "9523456873"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "yusuf_rossi_9620"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6247578"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W9711842"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W4776164"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6679257"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-5",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2378156"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_product_details-3",
+      "tool_name": "get_product_details",
+      "args": {
+        "product_id": "9523456873"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-2",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "yusuf_rossi_9620"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W4776164",
+        "item_ids": [
+          "8349118980"
+        ],
+        "new_item_ids": [
+          "9647292434"
+        ],
+        "payment_method_id": "credit_card_9513926"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 8349118980 in order #W4776164 to 9647292434, settling the difference with credit_card_9513926. The agent told the user: 10. Agent should tell the user that there are 10 t-shirt options available.",
+      "keywords": [
+        "10"
+      ]
+    }
+  ]
+}

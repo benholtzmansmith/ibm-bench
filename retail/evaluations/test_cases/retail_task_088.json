@@ -1,0 +1,26 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to change the book shelf to 4 foot but with the same material and color. If it is not available, cancel the whole order and you will buy again. If the agent asks for the cancellation reason, you say you ordered by mistake.\n\tKnown info:\n\t\tYou name is Daiki Silva and your email is daiki.silva6295@example.com.\n\tTask instructions:\n\t\tYou are insecure, creative, direct, relaxing.",
+  "goals": {
+    "cancel_pending_order-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W8835847",
+        "reason": "ordered by mistake"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W8835847 because it was ordered by mistake.",
+      "keywords": []
+    }
+  ]
+}

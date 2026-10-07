@@ -1,0 +1,39 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou just placed an order but you realize that your card has only $1131 credit left, but the order total is more than $1160. You wonder if the agent can help split the payment with another card. If not, you wonder what the most expensive item and its price, and if you can just cancel that item. If not, you wonder if you can switch all items to their cheapest options and bring the cost down to $1131. If so, do it. If not, you wonder if the agent can just cancel the order so that you can order again.\n\tKnown info:\n\t\tYour name is Daiki Sanchez, and you live in 46236, your email is daikisanchez1479@example.com.\n\tTask instructions:\n\t\tYou are a bit anxious and want to get things done quickly, and you speak very briefly.",
+  "goals": {
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W9348897",
+        "item_ids": [
+          "6117189161",
+          "7453605304",
+          "3799046073"
+        ],
+        "new_item_ids": [
+          "6700049080",
+          "5320792178",
+          "3234800602"
+        ],
+        "payment_method_id": "credit_card_8853416"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed items 6117189161, 7453605304, 3799046073 in order #W9348897 to 6700049080, 5320792178, 3234800602, settling the difference with credit_card_8853416. The agent told the user: camera, 481.5. Agent should tell the user the most expensive item in the order is the camera. Agent should tell the user the camera costs $481.50.",
+      "keywords": [
+        "camera",
+        "481.5"
+      ]
+    }
+  ]
+}

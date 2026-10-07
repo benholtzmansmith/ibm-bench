@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# Run the airline evaluations against the active orchestrate environment.
-# Usage: scripts/run_evals.sh [smoke|full] [local|remote]
-#   smoke (default) runs 5 tasks, full runs all 50.
+# Run a benchmark's evaluations against the active orchestrate environment.
+# Usage: scripts/run_evals.sh [smoke|full] [local|remote] [airline|retail]
+#   smoke (default) runs 5 tasks, full runs every task (50 airline, 114 retail).
 #   local (default) targets the server from setup_local.sh; remote targets the
 #   instance from setup_remote.sh.
+#   airline (default) is the tau-bench airline port, retail the tau2-bench retail port.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -11,6 +12,7 @@ cd "$ROOT"
 
 SUITE="${1:-smoke}"
 TARGET="${2:-local}"
+BENCH="${3:-airline}"
 
 if [[ "$TARGET" == "local" ]]; then
   orchestrate env activate local
@@ -30,4 +32,4 @@ else
   export WO_INSTANCE WO_API_KEY
 fi
 
-orchestrate evaluations evaluate -c "airline/evaluations/config.$SUITE.yaml" -o "results/$SUITE-$TARGET"
+orchestrate evaluations evaluate -c "$BENCH/evaluations/config.$SUITE.yaml" -o "results/$BENCH-$SUITE-$TARGET"

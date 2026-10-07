@@ -1,0 +1,38 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tDue to some life changes, you no longer need hiking boots, watch, keyboard, charger, jacket, and running shoes. If cancelling part of the order is not possible, you don't care, just cancel the whole order.\n\tKnown info:\n\t\tYou name is James Kim and your email is james.kim1995@example.com.\n\tTask instructions:\n\t\tYou are sad, independent, polite.",
+  "goals": {
+    "cancel_pending_order-1": [
+      "cancel_pending_order-2"
+    ],
+    "cancel_pending_order-2": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-1",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W3289292",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "cancel_pending_order-2",
+      "tool_name": "cancel_pending_order",
+      "args": {
+        "order_id": "#W9722559",
+        "reason": "no longer needed"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent cancelled order #W3289292 because it was no longer needed; cancelled order #W9722559 because it was no longer needed.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return the skateboard, garden hose, backpack, keyboard, and bed. You also want to cancel the garden hose from the pending order you just placed (you ONLY want to cancel that hose \u2014 if this would require cancelling the entire order, tell the agent not to do it). Make sure ALL the items you want to return are returned: first return the skateboard, then the garden hose and backpack, then the keyboard and bed. Finally, you want to know the total refund amount.\n\tKnown info:\n\t\tYou are Isabella Johansson, and you live in zipcode 32286.\n\tUnknown info:\n\t\tYou don't know your email.\n\tTask instructions:\n\t\tYou are extremely brief but patient.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_user_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-1": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-2": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-3": [
+      "return_delivered_order_items-1"
+    ],
+    "get_order_details-4": [
+      "return_delivered_order_items-1"
+    ],
+    "return_delivered_order_items-1": [
+      "return_delivered_order_items-2"
+    ],
+    "return_delivered_order_items-2": [
+      "return_delivered_order_items-3"
+    ],
+    "return_delivered_order_items-3": [
+      "summarize"
+    ],
+    "get_order_details-5": [
+      "summarize"
+    ],
+    "calculate-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Isabella",
+        "last_name": "Johansson",
+        "zip": "32286"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "isabella_johansson_2152"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W3792453"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7181492"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W5565470"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-4",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2575533"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W3792453",
+        "item_ids": [
+          "4293355847"
+        ],
+        "payment_method_id": "paypal_3024827"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-2",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W7181492",
+        "item_ids": [
+          "5753502325",
+          "9851293632"
+        ],
+        "payment_method_id": "paypal_3024827"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-3",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W5565470",
+        "item_ids": [
+          "9570044148",
+          "6857426243"
+        ],
+        "payment_method_id": "paypal_3024827"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-5",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W2575533"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "calculate-1",
+      "tool_name": "calculate",
+      "args": {
+        "expression": "200.8 + 96.35 + 193.38 + 231.37 + 196.53"
+      },
+      "arg_matching": {
+        "expression": "ignore"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 4293355847 from order #W3792453 with the refund to paypal_3024827; returned items 5753502325, 9851293632 from order #W7181492 with the refund to paypal_3024827; returned items 9570044148, 6857426243 from order #W5565470 with the refund to paypal_3024827. The agent told the user: 918.43. Agent should tell the user the total refund amount is $918.43.",
+      "keywords": [
+        "918.43"
+      ]
+    }
+  ]
+}

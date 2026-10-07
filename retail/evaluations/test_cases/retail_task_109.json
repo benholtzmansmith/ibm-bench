@@ -1,0 +1,66 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou live on Elm Avenue in Houston, and recently you moved to a new house on the same street and bought a luggage set sent to this new address. But you realize you have another order sent to the old address, and you want to change your wrong order address to the new home, and also your user default address to the new home. You do not want to reveal your address but the agent should be able to look it up in orders You do not want to reveal your address and insist the agent should be able to look it up in orders. You also want to exchange your tablet to the cheapest one due to moving costs.\n\tKnown info:\n\t\tYou name is Sophia Martin and your email is sophia.martin4832@example.com.\n\tTask instructions:\n\t\tYou are organized and outgoing.  Make sure to mention the two address changes then the exchange.",
+  "goals": {
+    "modify_pending_order_address-1": [
+      "modify_user_address-1"
+    ],
+    "modify_user_address-1": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W1603792",
+        "address1": "592 Elm Avenue",
+        "address2": "Suite 978",
+        "city": "Houston",
+        "country": "USA",
+        "state": "TX",
+        "zip": "77242"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_user_address-1",
+      "tool_name": "modify_user_address",
+      "args": {
+        "user_id": "sophia_martin_8570",
+        "address1": "592 Elm Avenue",
+        "address2": "Suite 978",
+        "city": "Houston",
+        "country": "USA",
+        "state": "TX",
+        "zip": "77242"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W1603792",
+        "item_ids": [
+          "6501071631"
+        ],
+        "new_item_ids": [
+          "2106335193"
+        ],
+        "payment_method_id": "credit_card_5694100"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the shipping address of order #W1603792 to 592 Elm Avenue, Suite 978, Houston, TX, 77242, USA; changed the default address of sophia_martin_8570 to 592 Elm Avenue, Suite 978, Houston, TX, 77242, USA; changed items 6501071631 in order #W1603792 to 2106335193, settling the difference with credit_card_5694100. Agent should make changes to address on order and user profile Agent should modify the pending order.",
+      "keywords": []
+    }
+  ]
+}

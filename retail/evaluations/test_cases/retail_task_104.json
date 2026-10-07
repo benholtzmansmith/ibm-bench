@@ -1,0 +1,97 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to return all bookshelves and jigsaw puzzles you received in different orders. Make sure you mention at the beginning that you want to cancel these two things, and they are from different orders. You also want to return the backpack you received with the vacuum cleaner. You also want to change your pending order item to red, and change the address of the order to your default Chicago home (you won't reveal it for private reasons but it's in your profile). You want to get the tracking number of your cancelled order.\n\tKnown info:\n\t\tYou name is Lucas Brown and your email is lucas.brown9344@example.com.\n\tTask instructions:\n\t\tYou are busy, happy, outgoing, messy, optimistic. You like to say one thing at a time.",
+  "goals": {
+    "return_delivered_order_items-1": [
+      "return_delivered_order_items-2"
+    ],
+    "return_delivered_order_items-2": [
+      "modify_pending_order_address-1"
+    ],
+    "modify_pending_order_address-1": [
+      "modify_pending_order_items-1"
+    ],
+    "modify_pending_order_items-1": [
+      "return_delivered_order_items-3"
+    ],
+    "return_delivered_order_items-3": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-1",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W8660475",
+        "item_ids": [
+          "8479046075"
+        ],
+        "payment_method_id": "credit_card_2112420"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-2",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W9218746",
+        "item_ids": [
+          "7824298782"
+        ],
+        "payment_method_id": "credit_card_2112420"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W4860251",
+        "address1": "921 Park Avenue",
+        "address2": "Suite 892",
+        "city": "Chicago",
+        "country": "USA",
+        "state": "IL",
+        "zip": "60612"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_items-1",
+      "tool_name": "modify_pending_order_items",
+      "args": {
+        "order_id": "#W4860251",
+        "item_ids": [
+          "5209958006"
+        ],
+        "new_item_ids": [
+          "8964750292"
+        ],
+        "payment_method_id": "credit_card_2112420"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "return_delivered_order_items-3",
+      "tool_name": "return_delivered_order_items",
+      "args": {
+        "order_id": "#W6239298",
+        "item_ids": [
+          "4900661478",
+          "3614853563"
+        ],
+        "payment_method_id": "credit_card_2112420"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent returned items 8479046075 from order #W8660475 with the refund to credit_card_2112420; returned items 7824298782 from order #W9218746 with the refund to credit_card_2112420; changed the shipping address of order #W4860251 to 921 Park Avenue, Suite 892, Chicago, IL, 60612, USA; changed items 5209958006 in order #W4860251 to 8964750292, settling the difference with credit_card_2112420; returned items 4900661478, 3614853563 from order #W6239298 with the refund to credit_card_2112420. The agent told the user: 286422338955. Agent should provide the tracking number 286422338955.",
+      "keywords": [
+        "286422338955"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou had a work-from-home situation and ordered three home office items along with some hiking items, so that you can go back to your parent's place at Seattle to remote work and enjoy outdoor life. But your company just announced that you will be back to the office soon. If cancelling partial items is possible with the agent, you want to return the office items (your forgot what) and keep the hiking items. You want to know the total amount you will get back, and you want to get the refund on your original payment method. If cancelling partial items is not possible, just change the address to your NYC place and you will return the items later.\n\tKnown info:\n\t\tYou are an interesting guy called Noah Patel, living in the Big Apple in 10108.\n\tUnknown info:\n\t\tYou don't have an email\n\tTask instructions:\n\t\tYou are a funny guy but recently the WFH situation made you a bit anxious.",
+  "goals": {
+    "find_user_id_by_name_zip-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_user_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-1": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-2": [
+      "modify_pending_order_address-1"
+    ],
+    "get_order_details-3": [
+      "modify_pending_order_address-1"
+    ],
+    "modify_pending_order_address-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "find_user_id_by_name_zip-1",
+      "tool_name": "find_user_id_by_name_zip",
+      "args": {
+        "first_name": "Noah",
+        "last_name": "Patel",
+        "zip": "10108"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_user_details-1",
+      "tool_name": "get_user_details",
+      "args": {
+        "user_id": "noah_patel_6952"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-1",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W6111398"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-2",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W7043598"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "get_order_details-3",
+      "tool_name": "get_order_details",
+      "args": {
+        "order_id": "#W1845024"
+      }
+    },
+    {
+      "type": "tool_call",
+      "name": "modify_pending_order_address-1",
+      "tool_name": "modify_pending_order_address",
+      "args": {
+        "order_id": "#W1845024",
+        "address1": "224 Elm Street",
+        "address2": "Suite 491",
+        "city": "New York",
+        "country": "USA",
+        "state": "NY",
+        "zip": "10108"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent changed the shipping address of order #W1845024 to 224 Elm Street, Suite 491, New York, NY, 10108, USA.",
+      "keywords": []
+    }
+  ]
+}

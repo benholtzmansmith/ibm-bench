@@ -1,0 +1,18 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou want to cancel the grill, but if the agent asks you to confirm, you regret and want to keep it. You then want to ask which two t-shirts you have ordered in another order, and what materials are they.\n\tKnown info:\n\t\tYou are Sofia Hernandez, and you live in Seattle, WA, 98193.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tMake everything sound very natural and make up reasons.",
+  "goals": {
+    "summarize": []
+  },
+  "goal_details": [
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent did not change any order or user. The agent told the user: polyester, cotton. Agent should tell the user the materials of the two t-shirts are polyester and cotton.",
+      "keywords": [
+        "polyester",
+        "cotton"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou received a laptop and you want to exchange it to i7 processor, 8GB, 1TB SSD. If the agent asks for which laptop, it is 15-inch, 16GB.\n\tKnown info:\n\t\tYou name is Lei Wilson and your zip code is 32255.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are confident, organized, creative, impatient.",
+  "goals": {
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W2905754",
+        "item_ids": [
+          "3478699712"
+        ],
+        "new_item_ids": [
+          "9844888101"
+        ],
+        "payment_method_id": "credit_card_3677959"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 3478699712 in order #W2905754 for 9844888101, settling the difference with credit_card_3677959.",
+      "keywords": []
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "agent": "tau2_retail_agent",
+  "story": "Instructions:\n\tDomain: retail\n\tReason for call:\n\t\tYou recently received a helmet but you are not happy with it and want to exchange. The size is too small and you want medium, plus you want high ventilation. If multiple colors are available, you prefer blue. You do not want the  You prefer original payment to pay for the price difference, and you want to know how much you need to pay today.\n\tKnown info:\n\t\tYou name is Sofia Hernandez and your zip code is 98193.\n\tUnknown info:\n\t\tYou do not remember your email address\n\tTask instructions:\n\t\tYou are impatient, confident, direct, messy.",
+  "goals": {
+    "exchange_delivered_order_items-1": [
+      "summarize"
+    ]
+  },
+  "goal_details": [
+    {
+      "type": "tool_call",
+      "name": "exchange_delivered_order_items-1",
+      "tool_name": "exchange_delivered_order_items",
+      "args": {
+        "order_id": "#W3947049",
+        "item_ids": [
+          "3358616356"
+        ],
+        "new_item_ids": [
+          "9013366374"
+        ],
+        "payment_method_id": "credit_card_7901829"
+      }
+    },
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The agent exchanged items 3358616356 in order #W3947049 for 9013366374, settling the difference with credit_card_7901829. The agent told the user: 22.55. Agent should tell the user they need to pay $22.55 for the price difference.",
+      "keywords": [
+        "22.55"
+      ]
+    }
+  ]
+}
