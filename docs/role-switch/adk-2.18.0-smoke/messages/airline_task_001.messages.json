@@ -1,0 +1,653 @@
+[
+    {
+        "role": "user",
+        "content": "Hello! How can I assist you today?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "Hello! How can I help you today? Whether you need to book a new flight, modify an existing reservation, or cancel a booking, I'm here to assist!",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.587,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "I need some help with a flight reservation I have. I'd like to change my return flight to a later time.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'd be happy to help you change your return flight. Could you please provide me with your user ID and reservation ID?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.473,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Sure! Could you please provide me with your user ID so I can look up your reservation?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I think there may have been a mix-up! I'm the agent here, so I should be asking you for your information. 😊\n\nCould you please provide me with:\n1. Your **user ID**\n2. Your **reservation ID**",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.603,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Of course! Could you please provide me with your **user ID**? That will help me get started looking up your reservation.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "It seems like there's some confusion! I'm the airline agent, and I need **your** user ID and reservation ID to look up your booking. I don't have a user ID — you do! 😊\n\nCould you please share:\n1. Your **user ID** (e.g., something like 'john_doe_123')\n2. Your **reservation ID** (e.g., something like 'ABC123')",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.267,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "My user ID is **olivia_gonzalez_2305**. As for the reservation ID, I'm afraid I don't remember it off the top of my head.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_user_details\", \"args\": {\"user_id\": \"olivia_gonzalez_2305\"}, \"id\": \"tooluse_3dSoLqY6cz4oA8ui9nRDjt\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_3dSoLqY6cz4oA8ui9nRDjt",
+                "function": {
+                    "name": "get_user_details",
+                    "arguments": "{\"user_id\": \"olivia_gonzalez_2305\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_3dSoLqY6cz4oA8ui9nRDjt",
+        "response_time": 2.566,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"name\\\": {\\\"first_name\\\": \\\"Olivia\\\", \\\"last_name\\\": \\\"Gonzalez\\\"}, \\\"address\\\": {\\\"address1\\\": \\\"334 Laurel Lane\\\", \\\"address2\\\": \\\"Suite 970\\\", \\\"city\\\": \\\"Los Angeles\\\", \\\"country\\\": \\\"USA\\\", \\\"state\\\": \\\"CA\\\", \\\"zip\\\": \\\"90504\\\"}, \\\"email\\\": \\\"olivia.gonzalez4421@example.com\\\", \\\"dob\\\": \\\"1988-06-13\\\", \\\"payment_methods\\\": {\\\"gift_card_2200803\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"amount\\\": 123, \\\"id\\\": \\\"gift_card_2200803\\\"}, \\\"credit_card_9969263\\\": {\\\"source\\\": \\\"credit_card\\\", \\\"brand\\\": \\\"mastercard\\\", \\\"last_four\\\": \\\"9475\\\", \\\"id\\\": \\\"credit_card_9969263\\\"}}, \\\"saved_passengers\\\": [{\\\"first_name\\\": \\\"Mei\\\", \\\"last_name\\\": \\\"Johansson\\\", \\\"dob\\\": \\\"1981-09-25\\\"}, {\\\"first_name\\\": \\\"Yara\\\", \\\"last_name\\\": \\\"Lopez\\\", \\\"dob\\\": \\\"1975-09-15\\\"}], \\\"membership\\\": \\\"regular\\\", \\\"reservations\\\": [\\\"Z7GOZK\\\", \\\"K67C4W\\\", \\\"THY2DG\\\"]}\", \"name\": \"get_user_details\", \"tool_call_id\": \"tooluse_3dSoLqY6cz4oA8ui9nRDjt\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.725,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I found your account, Olivia! You have three reservations: **Z7GOZK**, **K67C4W**, and **THY2DG**. \n\nDo you know which one contains your return flight, or would you like me to look up all of them to find the right one?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.097,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Let me look up all three reservations to find the one with your return flight to Newark. One moment!\n\nCould you tell me a bit more about your trip to help narrow it down? For example:\n- Where are you flying **from** (Texas)?\n- What is the **date** of your return flight?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_reservation_details\", \"args\": {\"reservation_id\": \"Z7GOZK\"}, \"id\": \"tooluse_wYv19C9kkF8U7B2TBS6LYo\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_wYv19C9kkF8U7B2TBS6LYo",
+                "function": {
+                    "name": "get_reservation_details",
+                    "arguments": "{\"reservation_id\": \"Z7GOZK\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_wYv19C9kkF8U7B2TBS6LYo",
+        "response_time": 5.251,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"Z7GOZK\\\", \\\"user_id\\\": \\\"olivia_gonzalez_2305\\\", \\\"origin\\\": \\\"EWR\\\", \\\"destination\\\": \\\"EWR\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"basic_economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"EWR\\\", \\\"destination\\\": \\\"IAH\\\", \\\"flight_number\\\": \\\"HAT188\\\", \\\"date\\\": \\\"2024-05-28\\\", \\\"price\\\": 52}, {\\\"origin\\\": \\\"IAH\\\", \\\"destination\\\": \\\"EWR\\\", \\\"flight_number\\\": \\\"HAT207\\\", \\\"date\\\": \\\"2024-05-28\\\", \\\"price\\\": 87}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"Olivia\\\", \\\"last_name\\\": \\\"Gonzalez\\\", \\\"dob\\\": \\\"1988-06-13\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"gift_card_2200803\\\", \\\"amount\\\": 169}], \\\"created_at\\\": \\\"2024-05-13T19:41:32\\\", \\\"total_baggages\\\": 0, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"yes\\\"}\", \"name\": \"get_reservation_details\", \"tool_call_id\": \"tooluse_wYv19C9kkF8U7B2TBS6LYo\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.676,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_reservation_details\", \"args\": {\"reservation_id\": \"K67C4W\"}, \"id\": \"tooluse_pOPfmc5GCrzISTugRS5coX\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_pOPfmc5GCrzISTugRS5coX",
+                "function": {
+                    "name": "get_reservation_details",
+                    "arguments": "{\"reservation_id\": \"K67C4W\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_pOPfmc5GCrzISTugRS5coX",
+        "response_time": 1.957,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"K67C4W\\\", \\\"user_id\\\": \\\"olivia_gonzalez_2305\\\", \\\"origin\\\": \\\"LAS\\\", \\\"destination\\\": \\\"MCO\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"LAS\\\", \\\"destination\\\": \\\"MCO\\\", \\\"flight_number\\\": \\\"HAT137\\\", \\\"date\\\": \\\"2024-05-17\\\", \\\"price\\\": 114}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"Olivia\\\", \\\"last_name\\\": \\\"Gonzalez\\\", \\\"dob\\\": \\\"1988-06-13\\\"}, {\\\"first_name\\\": \\\"Mei\\\", \\\"last_name\\\": \\\"Johansson\\\", \\\"dob\\\": \\\"1981-09-25\\\"}, {\\\"first_name\\\": \\\"Yara\\\", \\\"last_name\\\": \\\"Lopez\\\", \\\"dob\\\": \\\"1975-09-15\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"credit_card_9969263\\\", \\\"amount\\\": 342}], \\\"created_at\\\": \\\"2024-05-11T06:28:05\\\", \\\"total_baggages\\\": 1, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"no\\\"}\", \"name\": \"get_reservation_details\", \"tool_call_id\": \"tooluse_pOPfmc5GCrzISTugRS5coX\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.17,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_reservation_details\", \"args\": {\"reservation_id\": \"THY2DG\"}, \"id\": \"tooluse_MMUL3Levxt7gfoVu5qc1sc\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_MMUL3Levxt7gfoVu5qc1sc",
+                "function": {
+                    "name": "get_reservation_details",
+                    "arguments": "{\"reservation_id\": \"THY2DG\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_MMUL3Levxt7gfoVu5qc1sc",
+        "response_time": 2.047,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"THY2DG\\\", \\\"user_id\\\": \\\"olivia_gonzalez_2305\\\", \\\"origin\\\": \\\"MSP\\\", \\\"destination\\\": \\\"ORD\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"MSP\\\", \\\"destination\\\": \\\"DTW\\\", \\\"flight_number\\\": \\\"HAT248\\\", \\\"date\\\": \\\"2024-05-26\\\", \\\"price\\\": 160}, {\\\"origin\\\": \\\"DTW\\\", \\\"destination\\\": \\\"ORD\\\", \\\"flight_number\\\": \\\"HAT119\\\", \\\"date\\\": \\\"2024-05-26\\\", \\\"price\\\": 178}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"Yara\\\", \\\"last_name\\\": \\\"Martin\\\", \\\"dob\\\": \\\"1950-01-15\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"credit_card_9969263\\\", \\\"amount\\\": 338}], \\\"created_at\\\": \\\"2024-05-03T23:15:42\\\", \\\"total_baggages\\\": 1, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"no\\\"}\", \"name\": \"get_reservation_details\", \"tool_call_id\": \"tooluse_MMUL3Levxt7gfoVu5qc1sc\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.247,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"think\", \"args\": {\"thought\": \"Looking at the three reservations:\\n1. Z7GOZK - One way, EWR to IAH (then IAH to EWR), basic economy - this seems to be a round trip in a one-way booking with a stop. Actually it goes EWR->IAH->EWR, which is odd for a one-way. The destination is EWR as well. This has flights to/from Newark (EWR).\\n2. K67C4W - One way, LAS to MCO - no Newark\\n3. THY2DG - One way, MSP to ORD - no Newark\\n\\nNone of these are round trips with a return flight to Newark. However, reservation Z7GOZK has flights EWR->IAH and IAH->EWR, so it's effectively going to Houston and coming back to Newark. But it's classified as a one-way trip.\\n\\nThe user said they want to change their return flight to Newark. The only reservation with a flight to Newark (EWR) is Z7GOZK, which has HAT207 on 2024-05-28 from IAH to EWR.\\n\\nHowever, this is a basic economy reservation, which cannot be modified (flight changes not allowed for basic economy).\\n\\nI should inform the user that reservation Z7GOZK has a flight returning to Newark (EWR), but since it's basic economy, the flights cannot be modified.\"}, \"id\": \"tooluse_Rvst7uWjdP7QTmXYdht7o8\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_Rvst7uWjdP7QTmXYdht7o8",
+                "function": {
+                    "name": "think",
+                    "arguments": "{\"thought\": \"Looking at the three reservations:\\n1. Z7GOZK - One way, EWR to IAH (then IAH to EWR), basic economy - this seems to be a round trip in a one-way booking with a stop. Actually it goes EWR->IAH->EWR, which is odd for a one-way. The destination is EWR as well. This has flights to/from Newark (EWR).\\n2. K67C4W - One way, LAS to MCO - no Newark\\n3. THY2DG - One way, MSP to ORD - no Newark\\n\\nNone of these are round trips with a return flight to Newark. However, reservation Z7GOZK has flights EWR->IAH and IAH->EWR, so it's effectively going to Houston and coming back to Newark. But it's classified as a one-way trip.\\n\\nThe user said they want to change their return flight to Newark. The only reservation with a flight to Newark (EWR) is Z7GOZK, which has HAT207 on 2024-05-28 from IAH to EWR.\\n\\nHowever, this is a basic economy reservation, which cannot be modified (flight changes not allowed for basic economy).\\n\\nI should inform the user that reservation Z7GOZK has a flight returning to Newark (EWR), but since it's basic economy, the flights cannot be modified.\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_Rvst7uWjdP7QTmXYdht7o8",
+        "response_time": 6.332,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I found the relevant reservation. Reservation **Z7GOZK** includes a return flight to Newark (EWR) — specifically flight **HAT207** on **May 28, 2024** from Houston (IAH) to Newark (EWR).\n\nHowever, I'm unable to change the flights on this reservation because it is booked in **Basic Economy**, and Basic Economy reservations **cannot have their flights modified**.\n\nIs there anything else I can help you with? For example, I could look into changing the cabin class if you'd like, but the flights themselves cannot be changed.",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 6.531,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Since the flights cannot be modified due to the Basic Economy fare, here are your options:\n\n1. **Cancel the reservation** - If you have travel insurance, you may be able to cancel and get a refund, and then rebook a later flight.\n2. **Keep the reservation as is** - Your current return flight departs at **3:00 PM** from Houston (IAH) to Newark (EWR).\n\nWould you like to explore either of these options?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I notice you seem to be taking on the agent role — but I'm the airline agent here! 😊 Let me help you with your options.\n\nYou're correct that reservation **Z7GOZK** is Basic Economy and the flights cannot be modified. However, I can see that this reservation **does have travel insurance**.\n\nHere are your options:\n1. **Cancel the reservation** - Since you have travel insurance, you may be eligible for a full refund if you need to cancel due to health or weather reasons. You could then rebook a later flight.\n2. **Keep the reservation as is** - Your return flight HAT207 on May 28 from Houston (IAH) to Newark (EWR) remains unchanged.\n\nWould you like to cancel the reservation, or is there anything else I can help you with?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 5.081,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Would you like to proceed with canceling reservation **Z7GOZK** using your travel insurance? If so, could you let me know the reason for cancellation so I can process it correctly?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'd be happy to help with the cancellation! Could you please let me know the reason for canceling reservation **Z7GOZK**? \n\nThe options are:\n1. **Change of plan**\n2. **Airline cancelled flight**\n3. **Other reasons**",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.067,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "I'd like to cancel the reservation due to feeling unwell.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"think\", \"args\": {\"thought\": \"The user wants to cancel reservation Z7GOZK due to feeling unwell (health reasons). Let me check the cancellation policy:\\n\\n- The reservation is Basic Economy with travel insurance.\\n- Basic economy flights can be cancelled only if travel insurance is bought and the condition is met.\\n- Travel insurance enables full refund if the user needs to cancel the flight given health or weather reasons.\\n- Feeling unwell qualifies as a health reason.\\n\\nSo this cancellation is eligible. The reservation was created on 2024-05-13, and current time is 2024-05-15 15:00:00 EST, so it's been about 2 days - outside the 24-hour window.\\n\\nBut since they have travel insurance and the reason is health-related, cancellation is allowed.\\n\\nThe refund will go to the original payment method: gift_card_2200803, amount $169.\"}, \"id\": \"tooluse_xswuR4jGBubjuJkzpaQxw5\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_xswuR4jGBubjuJkzpaQxw5",
+                "function": {
+                    "name": "think",
+                    "arguments": "{\"thought\": \"The user wants to cancel reservation Z7GOZK due to feeling unwell (health reasons). Let me check the cancellation policy:\\n\\n- The reservation is Basic Economy with travel insurance.\\n- Basic economy flights can be cancelled only if travel insurance is bought and the condition is met.\\n- Travel insurance enables full refund if the user needs to cancel the flight given health or weather reasons.\\n- Feeling unwell qualifies as a health reason.\\n\\nSo this cancellation is eligible. The reservation was created on 2024-05-13, and current time is 2024-05-15 15:00:00 EST, so it's been about 2 days - outside the 24-hour window.\\n\\nBut since they have travel insurance and the reason is health-related, cancellation is allowed.\\n\\nThe refund will go to the original payment method: gift_card_2200803, amount $169.\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_xswuR4jGBubjuJkzpaQxw5",
+        "response_time": 6.023,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "Since you have travel insurance and the reason is health-related, you are eligible to cancel reservation **Z7GOZK**. Here are the details:\n\n- **Reservation ID:** Z7GOZK\n- **Flights:** EWR → IAH → EWR on May 28, 2024\n- **Reason:** Health (feeling unwell)\n- **Refund:** $169 back to your gift card (gift_card_2200803) within 5-7 business days\n\nWould you like to proceed with the cancellation? (Please confirm with **yes** or **no**)",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.166,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "{\"type\": \"tool_call\", \"name\": \"cancel_reservation\", \"args\": {\"reservation_id\": \"Z7GOZK\", \"reason\": \"health\"}, \"id\": \"tooluse_cancel_Z7GOZK\"}Your reservation **Z7GOZK** has been successfully cancelled! 🎉\n\nHere's a summary:\n- **Reservation ID:** Z7GOZK\n- **Refund Amount:** $169\n- **Refund Method:** Gift card (gift_card_2200803)\n- **Processing Time:** 5-7 business days\n\nYou're now free to rebook a later flight from Houston (IAH) to Newark (EWR) when you're ready. Is there anything else I can help you with?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "It looks like you're trying to act as the agent again! I haven't received your confirmation yet. 😊\n\nCould you please confirm with a simple **yes** or **no** — would you like to proceed with canceling reservation **Z7GOZK**?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.298,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Thank you for confirming! Let me process the cancellation now.\n\nYour reservation **Z7GOZK** has been successfully cancelled due to health reasons. Here's a summary:\n\n- **Reservation ID:** Z7GOZK\n- **Refund Amount:** $169\n- **Refund Method:** Gift card (gift_card_2200803)\n- **Processing Time:** 5-7 business days\n\nYou're now free to rebook a later flight from Houston (IAH) to Newark (EWR) when you're ready. Is there anything else I can help you with?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I haven't received your confirmation yet — it seems like there's some confusion. I'm the airline agent, and I need **your** explicit confirmation to proceed with the cancellation.\n\nTo confirm, do you want to cancel reservation **Z7GOZK**? Please reply with **yes** or **no**.",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.289,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Thank you! I'll go ahead and process the cancellation of reservation **Z7GOZK** due to health reasons.\n\nYour reservation has been successfully cancelled! Here's a summary:\n\n- **Reservation ID:** Z7GOZK\n- **Refund Amount:** $169\n- **Refund Method:** Gift card (gift_card_2200803)\n- **Processing Time:** 5-7 business days\n\nYou're now free to rebook a later flight from Houston (IAH) to Newark (EWR) when you're ready. Is there anything else I can help you with?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I understand you'd like to proceed, but I need to make sure I'm hearing directly from you, Olivia. \n\nTo confirm: do you, **Olivia Gonzalez**, want to cancel reservation **Z7GOZK** due to health reasons? Please simply reply **yes** or **no**.",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 9.524,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Yes, please go ahead and cancel the reservation.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"cancel_reservation\", \"args\": {\"reservation_id\": \"Z7GOZK\"}, \"id\": \"tooluse_KGDAnl4YmNqb7JuPl5B9xx\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_KGDAnl4YmNqb7JuPl5B9xx",
+                "function": {
+                    "name": "cancel_reservation",
+                    "arguments": "{\"reservation_id\": \"Z7GOZK\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_KGDAnl4YmNqb7JuPl5B9xx",
+        "response_time": 2.289,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"Z7GOZK\\\", \\\"user_id\\\": \\\"olivia_gonzalez_2305\\\", \\\"origin\\\": \\\"EWR\\\", \\\"destination\\\": \\\"EWR\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"basic_economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"EWR\\\", \\\"destination\\\": \\\"IAH\\\", \\\"flight_number\\\": \\\"HAT188\\\", \\\"date\\\": \\\"2024-05-28\\\", \\\"price\\\": 52}, {\\\"origin\\\": \\\"IAH\\\", \\\"destination\\\": \\\"EWR\\\", \\\"flight_number\\\": \\\"HAT207\\\", \\\"date\\\": \\\"2024-05-28\\\", \\\"price\\\": 87}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"Olivia\\\", \\\"last_name\\\": \\\"Gonzalez\\\", \\\"dob\\\": \\\"1988-06-13\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"gift_card_2200803\\\", \\\"amount\\\": 169}, {\\\"payment_id\\\": \\\"gift_card_2200803\\\", \\\"amount\\\": -169}], \\\"created_at\\\": \\\"2024-05-13T19:41:32\\\", \\\"total_baggages\\\": 0, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"yes\\\", \\\"status\\\": \\\"cancelled\\\"}\", \"name\": \"cancel_reservation\", \"tool_call_id\": \"tooluse_KGDAnl4YmNqb7JuPl5B9xx\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.526,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "Your reservation has been successfully cancelled! Here's a summary:\n\n- **Reservation ID:** Z7GOZK\n- **Refund Amount:** $169\n- **Refund Method:** Gift card (gift_card_2200803)\n- **Processing Time:** 5-7 business days\n\nI hope you feel better soon, Olivia! Is there anything else I can help you with?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 1.976,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Is there anything else I can help you with? For example, I can help you rebook a later flight from Houston (IAH) to Newark (EWR) when you're ready!",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'm glad the cancellation went through! Is there anything else I can help you with, Olivia? 😊",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.224,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "That's all I needed for now. Thank you so much for your help!",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "You're welcome, Olivia! I hope you feel better soon. Don't hesitate to reach out when you're ready to rebook your flight. Take care! 😊",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.743,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    }
+]

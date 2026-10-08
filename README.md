@@ -38,6 +38,9 @@ scripts/
   import_{airline,retail}.sh        adds the virtual model, tools and agent to the active environment
   run_evals.sh                      runs a benchmark's smoke (5 tasks) or full suite
 tests/                              offline checks, no server needed
+docs/
+  importing-agents-and-tools.md     ADK commands for importing tools, agents and the model, step by step
+  role-switch/                      message history and configs for runs where the simulated user speaks as the agent
 ```
 
 ## How tau-bench maps onto the ADK
