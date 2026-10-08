@@ -4,6 +4,22 @@ In every run below, the evaluation framework's simulated user starts speaking as
 
 This folder holds the message history and the effective config for each run, so the behaviour can be reproduced or reported.
 
+## Fix: the v2 simulator and universal prompt
+
+The repo's eval configs now set `llm_user_config.version: v2`. That switches to the framework's v2 simulated user, which uses `agentops/prompt/universal_user_template.jinja2` (shipped in both framework 1.5.2 and 1.6.6). The v1 prompt pastes the conversation into one prompt as tagged turns and asks the model to continue it, so the model easily continues as the wrong speaker. The universal prompt is a system prompt with an explicit rule never to answer in the assistant's voice.
+
+The same airline smoke suite on framework 1.6.6, everything else as below, on 2026-10-07:
+
+| Simulated user | `enable_structured_output` | User turns | Turns that break role | Journey success |
+|---|---|---|---|---|
+| v1, default prompt | true | 47 | 29 (2 fake tool calls) | 0.60 |
+| v2, universal prompt | true | 22 | 0 | 0.60 |
+| v2, universal prompt | false | 29 | 0 | 0.80 |
+
+Role breaks were counted by reading every simulated-user turn. With the v2 simulator, task 013 still fails because the agent refuses and never calls `transfer_to_human_agents`. Task 016 passed only in the run where the simulated user kept pushing, so its result depends on the user's persistence. One run per setting can't separate that from run-to-run variation.
+
+To reproduce the runs below, set `version: v1` under `llm_user_config`.
+
 ## Setup common to all runs
 
 - Target: a watsonx Orchestrate trial instance (AWS-hosted SaaS), run on 2026-10-07.
