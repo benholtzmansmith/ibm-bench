@@ -1,0 +1,77 @@
+# Effective config saved by the run. auth_config.token removed, instance URL and local paths replaced.
+auth_config:
+  tenant_name: trial
+  url: <WO_INSTANCE>
+collection_name: default-collection
+custom_metrics_config: null
+data_annotation_run: false
+enable_fuzzy_matching: false
+enable_manual_user_input: false
+enable_recursive_search: false
+enable_verbose_logging: true
+error_keywords: []
+evaluation_config:
+  provider_config:
+    embedding_model_id: sentence-transformers/all-minilm-l6-v2
+    model_id: watsonx-orchestrate/frontier
+    provider: gateway
+    provider_params: {}
+    referenceless_eval: false
+    vendor: ibm
+evaluation_model: watsonx-orchestrate/frontier
+extractors_config:
+  paths: null
+is_adk: true
+is_strict: true
+langfuse_enabled: false
+llm_user_config:
+  enable_structured_output: true
+  model_id: watsonx-orchestrate/frontier
+  personas: []
+  prompt_config: <site-packages>/agentops/prompt/gpt/gpt_user_template_v1.jinja2
+  provider_config:
+    embedding_model_id: sentence-transformers/all-minilm-l6-v2
+    model_id: watsonx-orchestrate/frontier
+    provider: gateway
+    provider_params: {}
+    referenceless_eval: false
+    vendor: ibm
+  user_response_style: []
+  version: v1
+max_user_turns: 30
+metrics:
+- JourneySuccessMetric
+- ToolCalling
+- OrchestrateAgentRoutingAccuracy
+- StepMetrics
+- AgentResponseTime
+- KnowledgeBaseAnswerRelevancy
+- DocumentRetrievalQuality
+- KnowledgeBaseFaithfulness
+- RetrievalConfidence
+- ToolParameterF1
+n_runs: 1
+num_workers: 2
+operator_configs:
+  AttackSuccessMetric: {}
+  JourneyCompletion: {}
+  JourneySuccessMetric: {}
+  TextMatchMetric: {}
+output_dir: results/smoke-remote-013/2026-10-07_20-37-21
+provider_config:
+  embedding_model_id: sentence-transformers/all-minilm-l6-v2
+  model_id: watsonx-orchestrate/frontier
+  provider: model_proxy
+  provider_params: {}
+  referenceless_eval: false
+  vendor: ibm
+similarity_threshold: 0.8
+skip_available_results: false
+skip_legacy_evaluation: true
+tags: []
+test_paths:
+- airline/evaluations/test_cases/airline_task_013.json
+text_match_config:
+  keyword_template_path: null
+  semantic_template_path: null
+wxo_lite_version: 2.18.0

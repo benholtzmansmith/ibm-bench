@@ -39,6 +39,9 @@ scripts/
   run_evals.sh                      runs a benchmark's smoke (5 tasks) or full suite
 docs/importing.md                   the orchestrate commands behind import_*.sh
 tests/                              offline checks, no server needed
+docs/
+  importing-agents-and-tools.md     ADK commands for importing tools, agents and the model, step by step
+  role-switch/                      message history and configs for runs where the simulated user speaks as the agent
 ```
 
 ## How tau-bench maps onto the ADK

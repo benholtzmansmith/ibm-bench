@@ -1,0 +1,6 @@
+run_idx,orchestrate_agent_routing_accuracy,total_steps,llm_steps,average_agent_response_time,total_tool_calls,expected_tool_calls,correct_tool_calls,missed_tool_calls,relevant_tool_calls,tool_calls_with_incorrect_parameter,tool_call_recall,tool_call_precision,tool_match_success,tool_parameter_f1,keyword_match,semantic_match,text_match,is_success,dataset_name,is_error,text_match_comment
+1,1,42,22,2.472,7,1,1,0,1,0,1.0,0.14,True,1.0,True,True,1,True,airline_task_001,0,Matched 1/1 text goals
+1,1,15,8,2.36,3,1,0,1,0,0,0.0,0.0,False,0.0,True,False,0,False,airline_task_013,0,Matched 0/1 text goals
+1,1,44,24,2.296,15,2,1,1,1,0,0.5,0.07,False,1.0,True,False,0,False,airline_task_016,0,Matched 0/1 text goals
+1,1,26,13,2.685,3,2,2,0,2,0,1.0,0.67,True,1.0,True,True,1,True,airline_task_043,0,Matched 1/1 text goals
+1,1,22,12,2.911,4,2,2,0,2,0,1.0,0.5,True,1.0,True,True,1,True,airline_task_044,0,Matched 1/1 text goals
