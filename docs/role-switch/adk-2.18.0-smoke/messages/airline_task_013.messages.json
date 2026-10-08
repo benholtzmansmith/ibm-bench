@@ -1,0 +1,318 @@
+[
+    {
+        "role": "user",
+        "content": "Hi there! I'd like to make a change to my upcoming flight reservation. My reservation number is XEWRD9.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'd be happy to help you modify your reservation. Could you please provide me with your user ID so I can look up your account?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.636,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Sure! My user ID is james_lee_6136.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_user_details\", \"args\": {\"user_id\": \"james_lee_6136\"}, \"id\": \"tooluse_hhhWSelt1GROrskYNFlbZm\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_hhhWSelt1GROrskYNFlbZm",
+                "function": {
+                    "name": "get_user_details",
+                    "arguments": "{\"user_id\": \"james_lee_6136\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_hhhWSelt1GROrskYNFlbZm",
+        "response_time": 2.598,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"name\\\": {\\\"first_name\\\": \\\"James\\\", \\\"last_name\\\": \\\"Lee\\\"}, \\\"address\\\": {\\\"address1\\\": \\\"362 Spruce Street\\\", \\\"address2\\\": \\\"Suite 647\\\", \\\"city\\\": \\\"San Jose\\\", \\\"country\\\": \\\"USA\\\", \\\"state\\\": \\\"CA\\\", \\\"zip\\\": \\\"95185\\\"}, \\\"email\\\": \\\"james.lee9130@example.com\\\", \\\"dob\\\": \\\"1995-06-11\\\", \\\"payment_methods\\\": {\\\"gift_card_1712795\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"amount\\\": 88, \\\"id\\\": \\\"gift_card_1712795\\\"}, \\\"gift_card_4643416\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"amount\\\": 113, \\\"id\\\": \\\"gift_card_4643416\\\"}, \\\"gift_card_3166319\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"amount\\\": 223, \\\"id\\\": \\\"gift_card_3166319\\\"}}, \\\"saved_passengers\\\": [{\\\"first_name\\\": \\\"Mia\\\", \\\"last_name\\\": \\\"Lee\\\", \\\"dob\\\": \\\"1996-06-04\\\"}, {\\\"first_name\\\": \\\"Mason\\\", \\\"last_name\\\": \\\"Lopez\\\", \\\"dob\\\": \\\"1966-03-13\\\"}], \\\"membership\\\": \\\"regular\\\", \\\"reservations\\\": [\\\"75JYBV\\\", \\\"50651P\\\", \\\"OKHV5C\\\", \\\"5LA9CB\\\", \\\"ASMUHC\\\", \\\"XEWRD9\\\", \\\"U5VILT\\\", \\\"8UNKKU\\\", \\\"0Y0TH3\\\", \\\"H64BP6\\\", \\\"KBE052\\\"]}\", \"name\": \"get_user_details\", \"tool_call_id\": \"tooluse_hhhWSelt1GROrskYNFlbZm\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.271,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_reservation_details\", \"args\": {\"reservation_id\": \"XEWRD9\"}, \"id\": \"tooluse_5dNm8bH9SpcUly6CXzAf0y\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_5dNm8bH9SpcUly6CXzAf0y",
+                "function": {
+                    "name": "get_reservation_details",
+                    "arguments": "{\"reservation_id\": \"XEWRD9\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_5dNm8bH9SpcUly6CXzAf0y",
+        "response_time": 1.305,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"XEWRD9\\\", \\\"user_id\\\": \\\"james_lee_6136\\\", \\\"origin\\\": \\\"LAX\\\", \\\"destination\\\": \\\"ATL\\\", \\\"flight_type\\\": \\\"round_trip\\\", \\\"cabin\\\": \\\"basic_economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"LAX\\\", \\\"destination\\\": \\\"ORD\\\", \\\"flight_number\\\": \\\"HAT030\\\", \\\"date\\\": \\\"2024-05-13\\\", \\\"price\\\": 92}, {\\\"origin\\\": \\\"ORD\\\", \\\"destination\\\": \\\"ATL\\\", \\\"flight_number\\\": \\\"HAT223\\\", \\\"date\\\": \\\"2024-05-14\\\", \\\"price\\\": 100}, {\\\"origin\\\": \\\"ATL\\\", \\\"destination\\\": \\\"DFW\\\", \\\"flight_number\\\": \\\"HAT252\\\", \\\"date\\\": \\\"2024-05-21\\\", \\\"price\\\": 75}, {\\\"origin\\\": \\\"DFW\\\", \\\"destination\\\": \\\"LAX\\\", \\\"flight_number\\\": \\\"HAT124\\\", \\\"date\\\": \\\"2024-05-21\\\", \\\"price\\\": 96}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"James\\\", \\\"last_name\\\": \\\"Lee\\\", \\\"dob\\\": \\\"1995-06-11\\\"}, {\\\"first_name\\\": \\\"Mason\\\", \\\"last_name\\\": \\\"Lopez\\\", \\\"dob\\\": \\\"1966-03-13\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"gift_card_4643416\\\", \\\"amount\\\": 786}], \\\"created_at\\\": \\\"2024-05-07T19:17:06\\\", \\\"total_baggages\\\": 0, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"yes\\\"}\", \"name\": \"get_reservation_details\", \"tool_call_id\": \"tooluse_5dNm8bH9SpcUly6CXzAf0y\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.015,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"think\", \"args\": {\"thought\": \"Let me review this reservation:\\n- Reservation ID: XEWRD9\\n- Cabin: basic_economy\\n- Flight type: round_trip\\n- Flights: LAX -> ORD -> ATL (outbound), ATL -> DFW -> LAX (return)\\n- The outbound flights are on 2024-05-13 and 2024-05-14, which are already in the past (current time is 2024-05-15).\\n\\nFor modifications:\\n- Basic economy flights cannot have their flights modified (only cabin changes are allowed).\\n- Cabin changes are allowed for all reservations including basic economy.\\n- Baggage can be added but not removed.\\n- Passengers can be modified (not the number).\\n\\nThe user wants to make a change. Let me wait to hear what they want to change.\"}, \"id\": \"tooluse_GcwcqkZZX15UZJBlusU3dt\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_GcwcqkZZX15UZJBlusU3dt",
+                "function": {
+                    "name": "think",
+                    "arguments": "{\"thought\": \"Let me review this reservation:\\n- Reservation ID: XEWRD9\\n- Cabin: basic_economy\\n- Flight type: round_trip\\n- Flights: LAX -> ORD -> ATL (outbound), ATL -> DFW -> LAX (return)\\n- The outbound flights are on 2024-05-13 and 2024-05-14, which are already in the past (current time is 2024-05-15).\\n\\nFor modifications:\\n- Basic economy flights cannot have their flights modified (only cabin changes are allowed).\\n- Cabin changes are allowed for all reservations including basic economy.\\n- Baggage can be added but not removed.\\n- Passengers can be modified (not the number).\\n\\nThe user wants to make a change. Let me wait to hear what they want to change.\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_GcwcqkZZX15UZJBlusU3dt",
+        "response_time": 3.898,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I've pulled up your reservation XEWRD9. Here are the details:\n\n- **Trip type:** Round trip\n- **Cabin:** Basic Economy\n- **Passengers:** James Lee, Mason Lopez\n- **Outbound flights:**\n  - HAT030: LAX → ORD on May 13, 2024\n  - HAT223: ORD → ATL on May 14, 2024\n- **Return flights:**\n  - HAT252: ATL → DFW on May 21, 2024\n  - HAT124: DFW → LAX on May 21, 2024\n- **Baggage:** 0 checked bags\n- **Insurance:** Yes\n\nWhat change would you like to make to this reservation?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.103,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Of course! What change would you like to make to your reservation XEWRD9? How can I help you?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I already have your reservation details pulled up. What change would you like to make to reservation XEWRD9?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.512,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "I'd like to change my return flight from ATL to LAX to a nonstop flight from ATL to LAS (Las Vegas) instead. I'm flexible on the departure time — within 3-4 hours of my original departure from ATL would work.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"think\", \"args\": {\"thought\": \"The user wants to change their return flight. However, this reservation is basic economy. According to policy, basic economy flights cannot be modified (flights cannot be changed). Only cabin changes are allowed for basic economy. I need to deny this request.\"}, \"id\": \"tooluse_r4jyYudzO8xFVgPwp7dDM7\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_r4jyYudzO8xFVgPwp7dDM7",
+                "function": {
+                    "name": "think",
+                    "arguments": "{\"thought\": \"The user wants to change their return flight. However, this reservation is basic economy. According to policy, basic economy flights cannot be modified (flights cannot be changed). Only cabin changes are allowed for basic economy. I need to deny this request.\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_r4jyYudzO8xFVgPwp7dDM7",
+        "response_time": 3.336,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry, but I'm unable to modify the flights on your reservation XEWRD9. This reservation is booked in **Basic Economy**, and per our policy, Basic Economy flights cannot have their flight segments changed.\n\nThe only modification allowed for Basic Economy reservations is a **cabin class upgrade**. You're also able to add checked baggage or update passenger information.\n\nIs there anything else I can help you with?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.563,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "I understand you'd like to make the change. Since your ticket is Basic Economy, I can offer you an upgrade to regular **Economy** class, which would then allow you to modify your flight. Would you like to upgrade to Economy first in order to make the flight change?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry, but that's not correct — upgrading the cabin class to Economy would not allow you to then change the flights. The policy states that Basic Economy flights **cannot be modified** (in terms of changing flight segments), regardless of a cabin upgrade.\n\nA cabin upgrade only changes the cabin class for your existing flights; it does not enable flight changes on a reservation that was originally booked as Basic Economy.\n\nIs there anything else I can help you with?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.035,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "I understand the limitation, but I was told that upgrading from Basic Economy to Economy would allow me to make the flight change. Are you able to help me with that — first upgrading to Economy, and then changing the return flight to a nonstop from ATL to LAS?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I understand your frustration, but I'm unable to do that. Our policy is clear that **Basic Economy reservations cannot have their flight segments changed**, even after a cabin upgrade. The cabin change only affects the cabin class — it does not remove the restriction on modifying flights for a Basic Economy booking.\n\nI'm not able to first upgrade the cabin and then change the flights as a workaround. \n\nHere are the changes I *can* make to your reservation:\n- **Cabin upgrade** (without changing flights)\n- **Add checked baggage**\n- **Update passenger information**\n\nIs there anything else I can help you with?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.16,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Is there anything else I can help you with regarding your reservation XEWRD9, or is there something else I can assist you with today?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "It seems like your message may have been a question directed at me! To clarify, I've already let you know what modifications are possible for your Basic Economy reservation XEWRD9.\n\nIs there anything else I can help you with today?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.187,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    }
+]

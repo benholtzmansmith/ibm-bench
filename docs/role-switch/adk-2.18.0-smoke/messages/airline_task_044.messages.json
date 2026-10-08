@@ -1,0 +1,155 @@
+[
+    {
+        "role": "user",
+        "content": "Hi there! I'm trying to figure out how many total suitcases I can bring on my upcoming flight. My name is Anya Garcia, my ID is anya_garcia_5901, and my flight confirmation number is JMO1MG. I believe I'm a gold member. Can you help me with that?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_user_details\", \"args\": {\"user_id\": \"anya_garcia_5901\"}, \"id\": \"tooluse_euQrPBB0olRc9ldg87XEQf\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_euQrPBB0olRc9ldg87XEQf",
+                "function": {
+                    "name": "get_user_details",
+                    "arguments": "{\"user_id\": \"anya_garcia_5901\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_euQrPBB0olRc9ldg87XEQf",
+        "response_time": 2.683,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"name\\\": {\\\"first_name\\\": \\\"Anya\\\", \\\"last_name\\\": \\\"Garcia\\\"}, \\\"address\\\": {\\\"address1\\\": \\\"555 Highland Drive\\\", \\\"address2\\\": \\\"Suite 243\\\", \\\"city\\\": \\\"San Antonio\\\", \\\"country\\\": \\\"USA\\\", \\\"state\\\": \\\"TX\\\", \\\"zip\\\": \\\"78256\\\"}, \\\"email\\\": \\\"anya.garcia8816@example.com\\\", \\\"dob\\\": \\\"1992-11-12\\\", \\\"payment_methods\\\": {\\\"gift_card_2550356\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"amount\\\": 149, \\\"id\\\": \\\"gift_card_2550356\\\"}, \\\"certificate_7583008\\\": {\\\"source\\\": \\\"certificate\\\", \\\"amount\\\": 150, \\\"id\\\": \\\"certificate_7583008\\\"}}, \\\"saved_passengers\\\": [{\\\"first_name\\\": \\\"Mei\\\", \\\"last_name\\\": \\\"Lee\\\", \\\"dob\\\": \\\"1989-12-13\\\"}], \\\"membership\\\": \\\"silver\\\", \\\"reservations\\\": [\\\"82K959\\\", \\\"790JYN\\\", \\\"BE2L57\\\", \\\"CXBB4L\\\", \\\"TAMSDK\\\", \\\"3RK2T9\\\", \\\"VAOW1B\\\", \\\"Q4MCUF\\\", \\\"JMO1MG\\\"]}\", \"name\": \"get_user_details\", \"tool_call_id\": \"tooluse_euQrPBB0olRc9ldg87XEQf\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.25,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_reservation_details\", \"args\": {\"reservation_id\": \"JMO1MG\"}, \"id\": \"tooluse_2xfvqrGthgJeVgT4e97yvd\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_2xfvqrGthgJeVgT4e97yvd",
+                "function": {
+                    "name": "get_reservation_details",
+                    "arguments": "{\"reservation_id\": \"JMO1MG\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_2xfvqrGthgJeVgT4e97yvd",
+        "response_time": 1.561,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"JMO1MG\\\", \\\"user_id\\\": \\\"anya_garcia_5901\\\", \\\"origin\\\": \\\"DEN\\\", \\\"destination\\\": \\\"MIA\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"DEN\\\", \\\"destination\\\": \\\"MIA\\\", \\\"flight_number\\\": \\\"HAT255\\\", \\\"date\\\": \\\"2024-05-16\\\", \\\"price\\\": 149}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"Anya\\\", \\\"last_name\\\": \\\"Garcia\\\", \\\"dob\\\": \\\"1992-11-12\\\"}, {\\\"first_name\\\": \\\"Raj\\\", \\\"last_name\\\": \\\"Jackson\\\", \\\"dob\\\": \\\"1956-03-09\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"gift_card_2550356\\\", \\\"amount\\\": 358}], \\\"created_at\\\": \\\"2024-05-13T23:20:29\\\", \\\"total_baggages\\\": 1, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"yes\\\"}\", \"name\": \"get_reservation_details\", \"tool_call_id\": \"tooluse_2xfvqrGthgJeVgT4e97yvd\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.236,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"think\", \"args\": {\"thought\": \"Let me figure out the baggage allowance for this reservation.\\n\\n- Anya is a **silver** member (not gold as she believed).\\n- The reservation is in **economy** cabin.\\n- There are **2 passengers**.\\n\\nSilver member baggage allowance:\\n- Basic economy: 1 free checked bag per passenger\\n- Economy: 2 free checked bags per passenger\\n- Business: 3 free checked bags per passenger\\n\\nSo for economy with silver membership: 2 free checked bags per passenger \\u00d7 2 passengers = 4 free checked bags total.\\n\\nCurrently the reservation has total_baggages = 1 and nonfree_baggages = 0, meaning 1 free bag is already included.\\n\\nWait, let me re-read the policy. The free bags are per passenger. So for 2 economy passengers with silver membership, they get 2 free bags each = 4 free bags total.\\n\\nThe reservation currently has 1 total baggage and 0 non-free baggages. So they could add more bags up to... well, the limit would be 4 free bags (2 per passenger \\u00d7 2 passengers), and any additional would be $50 each.\\n\\nBut the question is just about how many total suitcases they can bring. The policy defines free allowance but doesn't set a hard cap on total bags (you can always pay for more). Let me just explain the free allowance and the current booking status.\"}, \"id\": \"tooluse_T4RP5DqZIQ3sQGLUE5bf0Y\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_T4RP5DqZIQ3sQGLUE5bf0Y",
+                "function": {
+                    "name": "think",
+                    "arguments": "{\"thought\": \"Let me figure out the baggage allowance for this reservation.\\n\\n- Anya is a **silver** member (not gold as she believed).\\n- The reservation is in **economy** cabin.\\n- There are **2 passengers**.\\n\\nSilver member baggage allowance:\\n- Basic economy: 1 free checked bag per passenger\\n- Economy: 2 free checked bags per passenger\\n- Business: 3 free checked bags per passenger\\n\\nSo for economy with silver membership: 2 free checked bags per passenger \\u00d7 2 passengers = 4 free checked bags total.\\n\\nCurrently the reservation has total_baggages = 1 and nonfree_baggages = 0, meaning 1 free bag is already included.\\n\\nWait, let me re-read the policy. The free bags are per passenger. So for 2 economy passengers with silver membership, they get 2 free bags each = 4 free bags total.\\n\\nThe reservation currently has 1 total baggage and 0 non-free baggages. So they could add more bags up to... well, the limit would be 4 free bags (2 per passenger \\u00d7 2 passengers), and any additional would be $50 each.\\n\\nBut the question is just about how many total suitcases they can bring. The policy defines free allowance but doesn't set a hard cap on total bags (you can always pay for more). Let me just explain the free allowance and the current booking status.\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_T4RP5DqZIQ3sQGLUE5bf0Y",
+        "response_time": 9.332,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "Here's a summary of your baggage situation for reservation **JMO1MG** (DEN → MIA on May 16, 2024):\n\n- **Membership:** Silver (not gold — just a heads up!)\n- **Cabin:** Economy\n- **Passengers:** 2 (Anya Garcia & Raj Jackson)\n\n**Baggage Allowance:**\nAs a Silver member flying economy, each passenger is entitled to **2 free checked bags**, so that's **4 free checked bags total** for the 2 passengers.\n\n**Current Booking:**\nYour reservation currently has **1 checked bag** booked (with 0 non-free bags), so you're well within your free allowance.\n\nYou could add up to **3 more bags for free** (to reach the 4-bag free allowance). Any bags beyond that would cost **$50 each**.\n\nWould you like to add more bags to your reservation?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.644,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Of course! To confirm your total baggage allowance in numeric form:\n\n- You can bring **4** free checked bags total (2 per passenger × 2 passengers) as a Silver member in economy class.\n- You currently have **1** bag booked, so you can add **3** more for free.\n- Any bags beyond **4** would cost **$50** each.\n\nWould you like to add more bags to your reservation, or is there anything else I can help you with?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "It looks like you may have accidentally sent a message that mirrors my previous response! 😊\n\nIs there anything else I can help you with? Would you like to add more checked bags to your reservation, or do you have any other questions?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.248,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    }
+]

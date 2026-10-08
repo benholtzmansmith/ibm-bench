@@ -1,0 +1,332 @@
+[
+    {
+        "role": "user",
+        "content": "Hi, I have a flight reservation and I need to change a passenger name on it. My confirmation number is 3RK2T9.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'd be happy to help you update a passenger's name. Could you please provide me with your user ID so I can look up your account?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.809,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Sure! Could you please provide me with your user ID so I can locate your account and assist you with the name change?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "Of course! Could you please provide me with your user ID? It would be something like 'firstname_lastname_123'.",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.234,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "My user ID is anya_garcia_5901.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_user_details\", \"args\": {\"user_id\": \"anya_garcia_5901\"}, \"id\": \"tooluse_2gZfZ1YILi7Htih7ky1MKT\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_2gZfZ1YILi7Htih7ky1MKT",
+                "function": {
+                    "name": "get_user_details",
+                    "arguments": "{\"user_id\": \"anya_garcia_5901\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_2gZfZ1YILi7Htih7ky1MKT",
+        "response_time": 5.186,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"name\\\": {\\\"first_name\\\": \\\"Anya\\\", \\\"last_name\\\": \\\"Garcia\\\"}, \\\"address\\\": {\\\"address1\\\": \\\"555 Highland Drive\\\", \\\"address2\\\": \\\"Suite 243\\\", \\\"city\\\": \\\"San Antonio\\\", \\\"country\\\": \\\"USA\\\", \\\"state\\\": \\\"TX\\\", \\\"zip\\\": \\\"78256\\\"}, \\\"email\\\": \\\"anya.garcia8816@example.com\\\", \\\"dob\\\": \\\"1992-11-12\\\", \\\"payment_methods\\\": {\\\"gift_card_2550356\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"amount\\\": 149, \\\"id\\\": \\\"gift_card_2550356\\\"}, \\\"certificate_7583008\\\": {\\\"source\\\": \\\"certificate\\\", \\\"amount\\\": 150, \\\"id\\\": \\\"certificate_7583008\\\"}}, \\\"saved_passengers\\\": [{\\\"first_name\\\": \\\"Mei\\\", \\\"last_name\\\": \\\"Lee\\\", \\\"dob\\\": \\\"1989-12-13\\\"}], \\\"membership\\\": \\\"silver\\\", \\\"reservations\\\": [\\\"82K959\\\", \\\"790JYN\\\", \\\"BE2L57\\\", \\\"CXBB4L\\\", \\\"TAMSDK\\\", \\\"3RK2T9\\\", \\\"VAOW1B\\\", \\\"Q4MCUF\\\", \\\"JMO1MG\\\"]}\", \"name\": \"get_user_details\", \"tool_call_id\": \"tooluse_2gZfZ1YILi7Htih7ky1MKT\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.184,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"get_reservation_details\", \"args\": {\"reservation_id\": \"3RK2T9\"}, \"id\": \"tooluse_cT9mZH3UFTLTkdR0riKSc7\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_cT9mZH3UFTLTkdR0riKSc7",
+                "function": {
+                    "name": "get_reservation_details",
+                    "arguments": "{\"reservation_id\": \"3RK2T9\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_cT9mZH3UFTLTkdR0riKSc7",
+        "response_time": 1.537,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"3RK2T9\\\", \\\"user_id\\\": \\\"anya_garcia_5901\\\", \\\"origin\\\": \\\"MCO\\\", \\\"destination\\\": \\\"SFO\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"basic_economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"MCO\\\", \\\"destination\\\": \\\"PHX\\\", \\\"flight_number\\\": \\\"HAT214\\\", \\\"date\\\": \\\"2024-05-19\\\", \\\"price\\\": 57}, {\\\"origin\\\": \\\"PHX\\\", \\\"destination\\\": \\\"SFO\\\", \\\"flight_number\\\": \\\"HAT009\\\", \\\"date\\\": \\\"2024-05-20\\\", \\\"price\\\": 83}], \\\"passengers\\\": [{\\\"first_name\\\": \\\"Anya\\\", \\\"last_name\\\": \\\"Garcia\\\", \\\"dob\\\": \\\"1992-11-12\\\"}, {\\\"first_name\\\": \\\"Mei\\\", \\\"last_name\\\": \\\"Lee\\\", \\\"dob\\\": \\\"1989-12-13\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"gift_card_2550356\\\", \\\"amount\\\": 280}], \\\"created_at\\\": \\\"2024-05-02T06:02:56\\\", \\\"total_baggages\\\": 0, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"no\\\"}\", \"name\": \"get_reservation_details\", \"tool_call_id\": \"tooluse_cT9mZH3UFTLTkdR0riKSc7\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.247,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I found your reservation. Here are the current passenger details for reservation **3RK2T9**:\n\n1. **Anya Garcia** (DOB: 1992-11-12)\n2. **Mei Lee** (DOB: 1989-12-13)\n\nWhich passenger's name would you like to change, and what should the new name be?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 2.051,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "I want to change the name from **Mei Lee** to **Mei Garcia**.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"think\", \"args\": {\"thought\": \"The user wants to change Mei Lee's last name to Mei Garcia. This is a passenger name change, which is allowed. The policy says the user can modify passengers but cannot modify the number of passengers. Let me proceed with this change.\"}, \"id\": \"tooluse_sOJipKV1oUkdAqY1TF4oLO\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_sOJipKV1oUkdAqY1TF4oLO",
+                "function": {
+                    "name": "think",
+                    "arguments": "{\"thought\": \"The user wants to change Mei Lee's last name to Mei Garcia. This is a passenger name change, which is allowed. The policy says the user can modify passengers but cannot modify the number of passengers. Let me proceed with this change.\"}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_sOJipKV1oUkdAqY1TF4oLO",
+        "response_time": 2.858,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I'd like to confirm the following change to reservation **3RK2T9**:\n\n- **Passenger name change:** Mei Lee → **Mei Garcia** (DOB: 1989-12-13)\n\nWould you like to proceed with this update?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 1.942,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "{\"type\": \"tool_call\", \"name\": \"update_reservation_passengers\", \"args\": {\"reservation_id\": \"3RK2T9\", \"passengers\": [{\"first_name\": \"Anya\", \"last_name\": \"Garcia\", \"dob\": \"1992-11-12\"}, {\"first_name\": \"Mei\", \"last_name\": \"Garcia\", \"dob\": \"1989-12-13\"}]}, \"id\": \"tooluse_abc123\"}The passenger name has been successfully updated! Here's a summary:\n\n- **Reservation:** 3RK2T9\n- **Passenger 1:** Anya Garcia (unchanged)\n- **Passenger 2:** ~~Mei Lee~~ → **Mei Garcia** ✓\n\nIs there anything else I can help you with regarding your reservation?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I need an explicit confirmation from you before making any changes. Could you please confirm with a simple **yes** or **no** — would you like to proceed with changing the passenger name from **Mei Lee** to **Mei Garcia**?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 3.437,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "The passenger name has been successfully updated! Here's a summary:\n\n- **Reservation:** 3RK2T9\n- **Passenger 1:** Anya Garcia (unchanged)\n- **Passenger 2:** ~~Mei Lee~~ → **Mei Garcia** ✓\n\nIs there anything else I can help you with?",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "I still need your explicit confirmation before I can make any changes. \n\nTo confirm: would you like to update the passenger name from **Mei Lee** to **Mei Garcia** (DOB: 1989-12-13) on reservation **3RK2T9**? Please reply with **yes** or **no**.",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 4.301,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "user",
+        "content": "Yes, please go ahead and make the change.",
+        "type": "text",
+        "event": null,
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": null,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_call\", \"name\": \"update_reservation_passengers\", \"args\": {\"reservation_id\": \"3RK2T9\", \"passengers\": [{\"first_name\": \"Anya\", \"last_name\": \"Garcia\", \"dob\": \"1992-11-12\"}, {\"first_name\": \"Mei\", \"last_name\": \"Garcia\", \"dob\": \"1989-12-13\"}]}, \"id\": \"tooluse_rPlKHVJam4xkBIC4pyYbPg\"}",
+        "type": "tool_call",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": [
+            {
+                "id": "tooluse_rPlKHVJam4xkBIC4pyYbPg",
+                "function": {
+                    "name": "update_reservation_passengers",
+                    "arguments": "{\"reservation_id\": \"3RK2T9\", \"passengers\": [{\"first_name\": \"Anya\", \"last_name\": \"Garcia\", \"dob\": \"1992-11-12\"}, {\"first_name\": \"Mei\", \"last_name\": \"Garcia\", \"dob\": \"1989-12-13\"}]}"
+                },
+                "type": "function"
+            }
+        ],
+        "tool_call_id": "tooluse_rPlKHVJam4xkBIC4pyYbPg",
+        "response_time": 2.787,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "{\"type\": \"tool_response\", \"content\": \"{\\\"reservation_id\\\": \\\"3RK2T9\\\", \\\"user_id\\\": \\\"anya_garcia_5901\\\", \\\"origin\\\": \\\"MCO\\\", \\\"destination\\\": \\\"SFO\\\", \\\"flight_type\\\": \\\"one_way\\\", \\\"cabin\\\": \\\"basic_economy\\\", \\\"flights\\\": [{\\\"origin\\\": \\\"MCO\\\", \\\"destination\\\": \\\"PHX\\\", \\\"flight_number\\\": \\\"HAT214\\\", \\\"date\\\": \\\"2024-05-19\\\", \\\"price\\\": 57}, {\\\"origin\\\": \\\"PHX\\\", \\\"destination\\\": \\\"SFO\\\", \\\"flight_number\\\": \\\"HAT009\\\", \\\"date\\\": \\\"2024-05-20\\\", \\\"price\\\": 83}], \\\"passengers\\\": [{\\\"dob\\\": \\\"1992-11-12\\\", \\\"first_name\\\": \\\"Anya\\\", \\\"last_name\\\": \\\"Garcia\\\"}, {\\\"dob\\\": \\\"1989-12-13\\\", \\\"first_name\\\": \\\"Mei\\\", \\\"last_name\\\": \\\"Garcia\\\"}], \\\"payment_history\\\": [{\\\"payment_id\\\": \\\"gift_card_2550356\\\", \\\"amount\\\": 280}], \\\"created_at\\\": \\\"2024-05-02T06:02:56\\\", \\\"total_baggages\\\": 0, \\\"nonfree_baggages\\\": 0, \\\"insurance\\\": \\\"no\\\"}\", \"name\": \"update_reservation_passengers\", \"tool_call_id\": \"tooluse_rPlKHVJam4xkBIC4pyYbPg\"}",
+        "type": "tool_response",
+        "event": "run.step.delta",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 0.588,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    },
+    {
+        "role": "assistant",
+        "content": "The passenger name has been successfully updated! Here's a summary:\n\n- **Reservation:** 3RK2T9\n- **Passenger 1:** Anya Garcia (unchanged)\n- **Passenger 2:** ~~Mei Lee~~ → **Mei Garcia** ✓\n\nIs there anything else I can help you with?",
+        "type": "text",
+        "event": "message.created",
+        "conversational_search_metadata": null,
+        "tool_calls": null,
+        "tool_call_id": null,
+        "response_time": 1.665,
+        "thread_id": null,
+        "message_id": null,
+        "trace_id": null,
+        "run_id": null
+    }
+]

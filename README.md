@@ -38,6 +38,9 @@ scripts/
   import_{airline,retail}.sh        adds the virtual model, tools and agent to the active environment
   run_evals.sh                      runs a benchmark's smoke (5 tasks) or full suite
 tests/                              offline checks, no server needed
+docs/
+  importing-agents-and-tools.md     ADK commands for importing tools, agents and the model, step by step
+  role-switch/                      message history and configs for runs where the simulated user speaks as the agent
 ```
 
 ## How tau-bench maps onto the ADK
@@ -73,6 +76,10 @@ The retail port follows the airline mapping, with tau2's task format:
 The same two caveats apply: each tool call starts from the original database, and scoring is per tool call. The offline tests check that every gold action in all 114 tasks gives the same success or error against the original database as it does with state carried through the conversation, so the missing state changes some returned values (for example a gift card balance after an earlier payment change) but never whether a gold call succeeds. tau2 checks `communicate_info` against every agent message; the ADK checks keywords on the final response only.
 
 The airline and retail agents share three tool names (`calculate`, `get_user_details`, `transfer_to_human_agents`) with different behavior, so an Orchestrate environment holds one benchmark at a time. `setup_*.sh retail` or `scripts/import_retail.sh` switches it to retail, and `scripts/import_airline.sh` switches it back.
+
+## Importing agents and tools
+
+The setup scripts import everything. [docs/importing-agents-and-tools.md](docs/importing-agents-and-tools.md) lists the individual `orchestrate` commands for the model connection, tools and agents, so you can re-import one piece on its own.
 
 ## Offline checks
 
@@ -119,6 +126,14 @@ orchestrate evaluations analyze -d results/retail-smoke-remote
 ```
 
 This creates the `anthropic_creds` connection, the virtual model, and the benchmark's tools and agent in that instance.
+
+Without an Anthropic key, pick one of the instance's own models for the agent in the Orchestrate UI, and pass a model the instance lists (`orchestrate models list`) for the simulated user and judge:
+
+```bash
+EVAL_MODEL=watsonx-orchestrate/frontier scripts/run_evals.sh smoke remote
+```
+
+`orchestrate evaluations analyze` crashes on these results in ADK 2.18.0 (it expects `text_match` as a label and finds a number). Until that's fixed, read `summary_metrics.csv` and `messages/` in the run's results folder.
 
 To try another model, add a spec under `<benchmark>/models/` and change `llm` in the agent YAML and `model_id` in the eval configs.
 
