@@ -1,0 +1,20 @@
+{
+  "agent": "context_probe_agent",
+  "story": "You are checking whether the assistant can store notes. Send one request per message and wait for the reply each time. First ask it to remember the note 'alpha'. Then, in a new message, ask it to remember the note 'beta'. Then, in a new message, ask which notes are stored and ask it to quote the PERSISTED_COUNT line exactly. Once it has answered that, end the conversation.",
+  "goals": {
+    "probe_remember_note-1": ["probe_remember_note-2"],
+    "probe_remember_note-2": ["probe_recall_notes-1"],
+    "probe_recall_notes-1": ["summarize"]
+  },
+  "goal_details": [
+    {"type": "tool_call", "name": "probe_remember_note-1", "tool_name": "probe_remember_note", "args": {"note": "alpha"}},
+    {"type": "tool_call", "name": "probe_remember_note-2", "tool_name": "probe_remember_note", "args": {"note": "beta"}},
+    {"type": "tool_call", "name": "probe_recall_notes-1", "tool_name": "probe_recall_notes", "args": {}},
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "PERSISTED_COUNT=2 NOTES=alpha,beta",
+      "keywords": ["PERSISTED_COUNT=2", "alpha,beta"]
+    }
+  ]
+}

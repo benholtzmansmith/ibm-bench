@@ -1,0 +1,17 @@
+{
+  "agent": "context_probe_agent",
+  "story": "Ask the assistant to show you every context variable it can see, and ask it to copy the tool result exactly. Once it has answered, end the conversation.",
+  "runtime_context": {"probe_session": "case-42"},
+  "goals": {
+    "probe_show_context-1": ["summarize"]
+  },
+  "goal_details": [
+    {"type": "tool_call", "name": "probe_show_context-1", "tool_name": "probe_show_context", "args": {}},
+    {
+      "type": "text",
+      "name": "summarize",
+      "response": "The context includes probe_session set to case-42.",
+      "keywords": ["case-42"]
+    }
+  ]
+}
