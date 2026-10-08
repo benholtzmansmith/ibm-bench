@@ -37,7 +37,6 @@ scripts/
   setup_remote.sh [airline|retail]  activates a SaaS instance (e.g. a trial), then runs import_<benchmark>.sh
   import_{airline,retail}.sh        adds the virtual model, tools and agent to the active environment
   run_evals.sh                      runs a benchmark's smoke (5 tasks) or full suite
-docs/importing.md                   the orchestrate commands behind import_*.sh
 tests/                              offline checks, no server needed
 docs/
   importing-agents-and-tools.md     ADK commands for importing tools, agents and the model, step by step
@@ -80,7 +79,7 @@ The airline and retail agents share three tool names (`calculate`, `get_user_det
 
 ## Importing agents and tools
 
-The setup scripts import everything. [docs/importing.md](docs/importing.md) lists the individual `orchestrate` commands for the model connection, tools and agents, so you can re-import one piece on its own.
+The setup scripts import everything. [docs/importing-agents-and-tools.md](docs/importing-agents-and-tools.md) lists the individual `orchestrate` commands for the model connection, tools and agents, so you can re-import one piece on its own.
 
 ## Offline checks
 
