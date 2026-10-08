@@ -11,6 +11,9 @@ output_dir: results/smoke
 # The simulated user and the judge both call the virtual model through the
 # local Orchestrate AI gateway, so no separate provider key is needed.
 llm_user_config:
+  # v2 simulator with agentops/prompt/universal_user_template.jinja2; the v1 prompt
+  # makes the simulated user answer as the agent (see docs/role-switch/).
+  version: v2
   provider_config:
     provider: gateway
     model_id: virtual-model/anthropic/claude-sonnet-5-5
