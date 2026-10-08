@@ -120,6 +120,14 @@ orchestrate evaluations analyze -d results/retail-smoke-remote
 
 This creates the `anthropic_creds` connection, the virtual model, and the benchmark's tools and agent in that instance.
 
+Without an Anthropic key, pick one of the instance's own models for the agent in the Orchestrate UI, and pass a model the instance lists (`orchestrate models list`) for the simulated user and judge:
+
+```bash
+EVAL_MODEL=watsonx-orchestrate/frontier scripts/run_evals.sh smoke remote
+```
+
+`orchestrate evaluations analyze` crashes on these results in ADK 2.18.0 (it expects `text_match` as a label and finds a number). Until that's fixed, read `summary_metrics.csv` and `messages/` in the run's results folder.
+
 To try another model, add a spec under `<benchmark>/models/` and change `llm` in the agent YAML and `model_id` in the eval configs.
 
 ## License
