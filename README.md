@@ -37,6 +37,7 @@ scripts/
   setup_remote.sh [airline|retail]  activates a SaaS instance (e.g. a trial), then runs import_<benchmark>.sh
   import_{airline,retail}.sh        adds the virtual model, tools and agent to the active environment
   run_evals.sh                      runs a benchmark's smoke (5 tasks) or full suite
+docs/importing.md                   the orchestrate commands behind import_*.sh
 tests/                              offline checks, no server needed
 ```
 
@@ -73,6 +74,10 @@ The retail port follows the airline mapping, with tau2's task format:
 The same two caveats apply: each tool call starts from the original database, and scoring is per tool call. The offline tests check that every gold action in all 114 tasks gives the same success or error against the original database as it does with state carried through the conversation, so the missing state changes some returned values (for example a gift card balance after an earlier payment change) but never whether a gold call succeeds. tau2 checks `communicate_info` against every agent message; the ADK checks keywords on the final response only.
 
 The airline and retail agents share three tool names (`calculate`, `get_user_details`, `transfer_to_human_agents`) with different behavior, so an Orchestrate environment holds one benchmark at a time. `setup_*.sh retail` or `scripts/import_retail.sh` switches it to retail, and `scripts/import_airline.sh` switches it back.
+
+## Importing agents and tools
+
+The setup scripts import everything. [docs/importing.md](docs/importing.md) lists the individual `orchestrate` commands for the model connection, tools and agents, so you can re-import one piece on its own.
 
 ## Offline checks
 
