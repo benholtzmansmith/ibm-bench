@@ -41,6 +41,7 @@ context_probe/                      3-tool probe: do tool context updates persis
 tests/                              offline checks, no server needed
 docs/
   importing-agents-and-tools.md     ADK commands for importing tools, agents and the model, step by step
+  metrics/                          proposed per-run score with partial credit and a step penalty
   role-switch/                      message history and configs for runs where the simulated user speaks as the agent
 ```
 
