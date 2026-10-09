@@ -42,6 +42,7 @@ tests/                              offline checks, no server needed
 docs/
   importing-agents-and-tools.md     ADK commands for importing tools, agents and the model, step by step
   role-switch/                      message history and configs for runs where the simulated user speaks as the agent
+  improvement/                      proposal: eval checks and hillclimbing for the agents
 ```
 
 ## How tau-bench maps onto the ADK
